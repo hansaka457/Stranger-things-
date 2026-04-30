@@ -106,6 +106,166 @@
     </style>
 </head>
 <body>
+    <!-- NETFLIX LOGIN LANDING START -->
+<style>
+#login-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.netflix-login {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url('collage-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  transform: rotate(-5deg) scale(1.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Dark Overlay */
+.netflix-login::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.95) 100%);
+  z-index: 1;
+}
+
+.login-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 20px;
+  transform: rotate(5deg) scale(0.9);
+}
+
+.login-content h1 {
+  font-size: 52px;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+  text-shadow: 0 0 20px #e50914, 0 0 40px #e50914;
+}
+
+.login-content p {
+  font-size: 20px;
+  color: #fff;
+  margin: 0 0 10px 0;
+}
+
+.login-content .sub-text {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/* Google Button */
+.google-btn {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 15px 40px;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: 0.3s;
+}
+
+.google-btn:hover {
+  background: #f1f1f1;
+  transform: scale(1.05);
+}
+
+.google-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+.login-content .brand {
+  color: #e50914;
+  font-size: 36px;
+  font-weight: 900;
+  font-family: 'Arial Black', sans-serif;
+  letter-spacing: 3px;
+  margin-top: 40px;
+  text-shadow: 2px 2px 8px #000;
+}
+
+#main-site {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .login-content h1 { font-size: 36px; }
+  .login-content .brand { font-size: 28px; }
+  .login-content { transform: rotate(5deg) scale(1); }
+}
+</style>
+
+<div id="login-overlay">
+  <div class="netflix-login">
+    <div class="login-content">
+      <h1>UNLIMITED TV SHOWS<br>AND MORE</h1>
+      <p>Starts at Rs. 499. Cancel anytime.</p>
+      <p class="sub-text">Sign in with Google to continue</p>
+      
+      <button class="google-btn" onclick="signInWithGoogle()">
+        <img src="https://www.google.com/favicon.ico" alt="Google">
+        Sign in with Google
+      </button>
+      
+      <div class="brand">CINEMAX ENGLISH-KOREAN</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script>
+function signInWithGoogle() {
+  google.accounts.id.initialize({
+    client_id: '743603158205-l3c6pv1o6mu8j53ptic93p0u22irspjs.apps.googleusercontent.com',
+    callback: handleCredentialResponse
+  });
+  google.accounts.id.prompt();
+}
+
+function handleCredentialResponse(response) {
+  document.getElementById('login-overlay').style.display = 'none';
+  document.getElementById('main-site').style.display = 'block';
+  localStorage.setItem('loggedIn', 'true');
+}
+
+window.onload = function() {
+  if(localStorage.getItem('loggedIn') === 'true') {
+    document.getElementById('login-overlay').style.display = 'none';
+    document.getElementById('main-site').style.display = 'block';
+  }
+}
+</script>
+<!-- NETFLIX LOGIN LANDING END -->
+
+<div id="main-site">
+    
     <!-- HERO VIDEO SLIDER START -->
 <style>
 .hero-slider {
@@ -570,6 +730,6 @@
     }
   </script>
   <!-- 👆 SEARCH SCRIPT 👆 -->
-
+</div> <!--main-site end --> 
 </body>
     </html>
