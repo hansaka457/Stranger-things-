@@ -107,24 +107,26 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
  <body>
- <!-- User Profile Bar - මෙතනින් පටන් ගන්න -->
- <div id="userProfile" style="position: fixed; top: 15px; right: 15px; z-index: 99999; display: none; align-items: center; gap: 10px; background: rgba(0,0,0,0.8); padding: 8px 15px; border-radius: 25px; border: 2px solid #ff0000; box-shadow: 0 0 15px rgba(255,0,0,0.5);">
- <img id="userPhoto" src="" style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #ff0000; object-fit: cover;">
- <div style="display: flex; flex-direction: column;">
- <span id="userName" style="color: #fff; font-size: 13px; font-weight: bold; line-height: 1;"></span>
- <span id="userEmail" style="color: #aaa; font-size: 10px; line-height: 1;"></span>
- </div>
- <button onclick="logoutUser()" style="background: #ff0000; color: white; border: none; padding: 6px 12px; border-radius: 15px; cursor: pointer; font-size: 12px; font-weight: bold;">Logout</button>
- </div>
+<!-- User Profile Bar -->
+<div id="userProfile" style="position: fixed; top: 15px; right: 15px; z-index: 99999; display: none; align-items: center; gap: 10px; background: rgba(0,0,0,0.8); padding: 8px 15px; border-radius: 25px; border: 2px solid #ff0000; box-shadow: 0 0 15px rgba(255,0,0,0.5);">
+    <img id="userPhoto" src="" style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #ff0000; object-fit: cover;">
+    <div style="display: flex; flex-direction: column;">
+        <span id="userName" style="color: #fff; font-size: 13px; font-weight: bold; line-height: 1;"></span>
+        <span id="userEmail" style="color: #aaa; font-size: 10px; line-height: 1;"></span>
+    </div>
+    <button onclick="logoutUser()" style="background: #ff0000; color: white; border: none; padding: 6px 12px; border-radius: 15px; cursor: pointer; font-size: 12px; font-weight: bold;">Logout</button>
+</div>
 
- <!-- Google Login Config -->
- <div id="g_id_onload"
- data-client_id="743603158205-l3c6pv1o6mu8j53ptic93p0u22irspjs.apps.googleusercontent.com"
- data-callback="handleCredentialResponse"
- data-auto_prompt="false">
- </div>
+<!-- Google Login Config -->
+<div id="g_id_onload"
+     data-client_id="43603158205-l3c6pv1o6mu8j53ptic93p0u22irspjs.apps.googleusercontent.com"
+     data-callback="handleCredentialResponse"
+     data-auto_prompt="false">
+</div>
 
- <!-- NETFLIX LOGIN LANDING START --> <-- මේක උඹේ පරණ Code එක
+<!-- NETFLIX LOGIN LANDING START -->
+
+ 
     <!-- NETFLIX LOGIN LANDING START -->
 <style>
 #login-overlay {
