@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stranger Things - Fan Site</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            text-align: center;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: #ff0000;
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #ff0000,
+                0 0 40px #ff0000;
+            letter-spacing: 8px;
+            animation: flicker 3s infinite alternate;
+            margin-bottom: 30px;
+        }
+        
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow: 
+                    0 0 5px #fff,
+                    0 0 10px #fff,
+                    0 0 20px #ff0000,
+                    0 0 40px #ff0000,
+                    0 0 80px #ff0000;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            color: #ccc;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .quote {
+            font-size: 1.1rem;
+            color: #ff0000;
+            font-style: italic;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            margin-top: 40px;
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid #ff0000;
+            color: #ff0000;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            background: #ff0000;
+            color: #000;
+            box-shadow: 0 0 20px #ff0000;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; letter-spacing: 4px; }
+            .tagline { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>STRANGER THINGS</h1>
+        <p class="tagline">WELCOME TO HAWKINS, INDIANA</p>
+        <p class="tagline">1983</p>
+        <p class="quote">"Friends don't lie."</p>
+        
+        <a href="#episodes" class="btn">ENTER THE UPSIDE DOWN</a>
+        
+        <div class="footer">
+            Fan Made Website by hansaka457 🖤 | Netflix Original
+        </div>
+    </div>
+</body>
+</html>
