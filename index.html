@@ -104,8 +104,27 @@
             .tagline { font-size: 1rem; }
         }
     </style>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
-<body>
+109 <body>
+110 <!-- User Profile Bar - මෙතනින් පටන් ගන්න -->
+111 <div id="userProfile" style="position: fixed; top: 15px; right: 15px; z-index: 99999; display: none; align-items: center; gap: 10px; background: rgba(0,0,0,0.8); padding: 8px 15px; border-radius: 25px; border: 2px solid #ff0000; box-shadow: 0 0 15px rgba(255,0,0,0.5);">
+112 <img id="userPhoto" src="" style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #ff0000; object-fit: cover;">
+113 <div style="display: flex; flex-direction: column;">
+114 <span id="userName" style="color: #fff; font-size: 13px; font-weight: bold; line-height: 1;"></span>
+115 <span id="userEmail" style="color: #aaa; font-size: 10px; line-height: 1;"></span>
+116 </div>
+117 <button onclick="logoutUser()" style="background: #ff0000; color: white; border: none; padding: 6px 12px; border-radius: 15px; cursor: pointer; font-size: 12px; font-weight: bold;">Logout</button>
+118 </div>
+119
+120 <!-- Google Login Config -->
+121 <div id="g_id_onload"
+122 data-client_id="743603158205-l3c6pv1o6mu8j53ptic93p0u22irspjs.apps.googleusercontent.com"
+123 data-callback="handleCredentialResponse"
+124 data-auto_prompt="false">
+125 </div>
+126
+127 <!-- NETFLIX LOGIN LANDING START --> <-- මේක උඹේ පරණ Code එක
     <!-- NETFLIX LOGIN LANDING START -->
 <style>
 #login-overlay {
@@ -728,7 +747,65 @@ window.onload = function() {
         }
       }
     }
-  </script>
+  <script>
+// 🔥 උඹේ Client ID එක මෙතනත් දාපන්
+const CLIENT_ID = "743603158205-l3c6pv1o6mu8j53ptic93p0u22irspjs.apps.googleusercontent.com";
+
+function handleCredentialResponse(response) {
+    const data = decodeJwtResponse(response.credential);
+    localStorage.setItem('google_jwt', response.credential);
+    localStorage.setItem('userName', data.name);
+    localStorage.setItem('userPhoto', data.picture);
+    localStorage.setItem('userEmail', data.email);
+    showProfile();
+}
+
+function showProfile() {
+    const name = localStorage.getItem('userName');
+    const photo = localStorage.getItem('userPhoto');
+    const email = localStorage.getItem('userEmail');
+    if (name && photo) {
+        document.getElementById('userName').innerText = name;
+        document.getElementById('userEmail').innerText = email;
+        document.getElementById('userPhoto').src = photo;
+        document.getElementById('userProfile').style.display = 'flex';
+    }
+}
+
+function logoutUser() {
+    google.accounts.id.disableAutoSelect();
+    localStorage.clear();
+    document.getElementById('userProfile').style.display = 'none';
+    location.reload();
+}
+
+function decodeJwtResponse(token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+    return JSON.parse(jsonPayload);
+}
+
+window.onload = function() {
+    showProfile();
+    const init = setInterval(() => {
+        if (typeof google!== 'undefined') {
+            clearInterval(init);
+            google.accounts.id.initialize({
+                client_id: CLIENT_ID,
+                callback: handleCredentialResponse
+            });
+            if (!localStorage.getItem('google_jwt')) {
+                google.accounts.id.prompt();
+            }
+        }
+    }, 100);
+}
+</script>
+</body>
+</html>
   <!-- 👆 SEARCH SCRIPT 👆 -->
 </div> <!--main-site end --> 
 </body>
