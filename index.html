@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CINEMAX - Unlimited TV Shows & Movies</title>
+    <title>CINEMAX - Free Movies & TV Shows</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Cinzel:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Cinzel:wght@700&display=swap');
 
         * {
             margin: 0;
@@ -16,108 +16,188 @@
         body, html {
             margin: 0!important;
             padding: 0!important;
-            height: 100%!important;
             font-family: 'Roboto', Arial, sans-serif;
             background: #000;
             color: #fff;
             overflow-x: hidden;
         }
 
-        /* Netflix Background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/LK-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg') center/cover no-repeat;
-            z-index: -2;
-        }
-
-        /* Login Overlay */
+        /* Login Overlay - Plex Style */
         #login-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.65)!important;
             z-index: 99999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow-y: auto;
         }
 
-      .netflix-login {
+        /* Hero Section with Movie Posters Background */
+       .plex-hero {
             position: relative;
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
             justify-content: center;
-            text-align: center;
-            background: transparent!important;
+            padding: 80px 40px 60px 40px;
+            /* Movie Posters Collage Background */
+            background: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1920&q=80') center/cover no-repeat;
         }
 
-      .login-content {
+        /* Dark Overlay */
+       .plex-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.85) 100%);
+            z-index: 1;
+        }
+
+        /* Plex Logo */
+       .plex-logo {
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            font-size: 28px;
+            font-weight: 900;
+            color: #fff;
+            z-index: 3;
+            letter-spacing: -1px;
+        }
+
+       .plex-logo span {
+            color: #e5a00d;
+        }
+
+       .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
-            padding: 20px;
+            max-width: 650px;
         }
 
-      .login-content h1 {
-            font-size: 52px;
+       .hero-content h1 {
+            font-size: 56px;
             font-weight: 900;
             color: #fff;
             margin: 0 0 20px 0;
-            line-height: 1.1;
+            line-height: 1.15;
         }
 
-      .login-content p {
-            font-size: 20px;
-            color: #fff;
-            margin: 0 0 10px 0;
-        }
-
-      .sub-text {
+       .hero-content p {
             font-size: 18px;
-            margin-bottom: 30px;
+            color: #fff;
+            margin: 0 0 30px 0;
+            line-height: 1.5;
+            font-weight: 400;
         }
 
-      .brand {
-            color: #e50914;
-            font-size: 36px;
-            font-weight: 900;
-            font-family: 'Arial Black', sans-serif;
-            letter-spacing: 3px;
-            margin-top: 40px;
-        }
-
-      .google-btn {
-            background: #fff;
+        /* Yellow Watch Free Button */
+       .watch-btn {
+            background: #e5a00d;
             color: #000;
             border: none;
-            padding: 15px 40px;
-            font-size: 18px;
-            border-radius: 4px;
+            padding: 14px 32px;
+            font-size: 16px;
+            border-radius: 24px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            transition: 0.3s;
+            gap: 8px;
+            transition: 0.2s;
         }
 
-      .google-btn:hover {
-            background: #f1f1f1;
+       .watch-btn:hover {
+            background: #ffb000;
             transform: scale(1.05);
         }
 
-      .google-btn img {
-            width: 24px;
-            height: 24px;
+        /* Features Section - White Background */
+       .features-section {
+            background: #fff;
+            color: #000;
+            padding: 60px 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+       .feature-item {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+       .feature-icon {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+
+       .feature-text h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #000;
+            margin: 0 0 8px 0;
+        }
+
+       .feature-text p {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Google Login in Hero */
+       .google-login-box {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+       .google-login-box p {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+       .google-btn {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            font-size: 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.2s;
+        }
+
+       .google-btn:hover {
+            background: #f1f1f1;
+        }
+
+       .google-btn img {
+            width: 18px;
+            height: 18px;
+        }
+
+       .brand {
+            color: #e50914;
+            font-size: 28px;
+            font-weight: 900;
+            font-family: 'Arial Black', sans-serif;
+            letter-spacing: 2px;
+            margin-top: 30px;
         }
 
         /* User Profile Bar */
@@ -129,18 +209,18 @@
             display: none;
             align-items: center;
             gap: 10px;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.9);
             padding: 8px 15px;
             border-radius: 25px;
-            border: 2px solid #e50914;
-            box-shadow: 0 0 15px rgba(229,9,20,0.5);
+            border: 2px solid #e5a00d;
+            box-shadow: 0 0 15px rgba(229,160,13,0.5);
         }
 
         #userPhoto {
             width: 35px;
             height: 35px;
             border-radius: 50%;
-            border: 2px solid #e50914;
+            border: 2px solid #e5a00d;
             object-fit: cover;
         }
 
@@ -157,9 +237,9 @@
             line-height: 1;
         }
 
-      .logout-btn {
-            background: #e50914;
-            color: white;
+       .logout-btn {
+            background: #e5a00d;
+            color: #000;
             border: none;
             padding: 6px 12px;
             border-radius: 15px;
@@ -171,28 +251,30 @@
         /* Main Site */
         #main-site {
             display: none;
+            background: #000;
         }
 
-      .hero {
+       .hero {
             text-align: center;
             padding: 60px 20px;
+            background: #000;
         }
 
-      .hero h1 {
+       .hero h1 {
             color: #e50914;
             font-size: 3rem;
             margin-bottom: 10px;
             font-family: 'Cinzel', serif;
         }
 
-      .tagline {
+       .tagline {
             font-size: 1.3rem;
             color: #ccc;
             margin-bottom: 10px;
             letter-spacing: 2px;
         }
 
-      .quote {
+       .quote {
             font-size: 1.1rem;
             color: #e50914;
             font-style: italic;
@@ -200,7 +282,7 @@
             font-weight: 600;
         }
 
-      .btn {
+       .btn {
             margin-top: 40px;
             padding: 12px 30px;
             background: transparent;
@@ -213,20 +295,20 @@
             display: inline-block;
         }
 
-      .btn:hover {
+       .btn:hover {
             background: #e50914;
             color: #000;
             box-shadow: 0 0 20px #e50914;
         }
 
-      .footer {
+       .footer {
             margin-top: 60px;
             font-size: 0.9rem;
             color: #555;
         }
 
         /* Hero Slider */
-      .hero-slider {
+       .hero-slider {
             position: relative;
             width: 100%;
             max-width: 1200px;
@@ -238,7 +320,7 @@
             background: #000;
         }
 
-      .hero-slide {
+       .hero-slide {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -246,17 +328,17 @@
             transition: opacity 1s ease-in-out;
         }
 
-      .hero-slide.active {
+       .hero-slide.active {
             opacity: 1;
         }
 
-      .hero-slide video {
+       .hero-slide video {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-      .hero-dots {
+       .hero-dots {
             text-align: center;
             position: absolute;
             bottom: 15px;
@@ -264,7 +346,7 @@
             z-index: 10;
         }
 
-      .hero-dot {
+       .hero-dot {
             height: 12px;
             width: 12px;
             margin: 0 5px;
@@ -275,18 +357,18 @@
             transition: 0.3s;
         }
 
-      .hero-dot.active {
-            background-color: #e50914;
-            box-shadow: 0 0 10px #e50914;
+       .hero-dot.active {
+            background-color: #e5a00d;
+            box-shadow: 0 0 10px #e5a00d;
         }
 
-      .searchable h3 {
+       .searchable h3 {
             color: #e50914;
             margin-top: 50px;
             font-family: 'Cinzel', serif;
         }
 
-      .wa-btn {
+       .wa-btn {
             display: inline-block;
             background: #25D366;
             color: #fff;
@@ -300,15 +382,19 @@
             transition: 0.3s;
         }
 
-      .wa-btn:hover {
+       .wa-btn:hover {
             transform: scale(1.05);
         }
 
         @media (max-width: 768px) {
-          .login-content h1 { font-size: 36px; }
-          .brand { font-size: 28px; }
-          .hero-slider { height: 250px; }
-          .hero h1 { font-size: 2.5rem; letter-spacing: 4px; }
+           .plex-hero { padding: 60px 20px 40px 20px; }
+           .hero-content h1 { font-size: 36px; }
+           .hero-content p { font-size: 16px; }
+           .plex-logo { left: 20px; font-size: 24px; }
+           .features-section { padding: 40px 20px; }
+           .feature-item { flex-direction: column; }
+           .hero-slider { height: 250px; }
+           .hero h1 { font-size: 2.5rem; letter-spacing: 4px; }
         }
     </style>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -331,20 +417,64 @@
          data-auto_prompt="false">
     </div>
 
-    <!-- NETFLIX LOGIN OVERLAY -->
+    <!-- LOGIN OVERLAY - PLEX STYLE -->
     <div id="login-overlay">
-        <div class="netflix-login">
-            <div class="login-content">
-                <h1>UNLIMITED TV SHOWS<br>AND MORE</h1>
-                <p>Starts at Rs. 499. Cancel anytime.</p>
-                <p class="sub-text">Sign in with Google to continue</p>
+        <div class="plex-hero">
+            <div class="plex-logo">plex</div>
 
-                <button class="google-btn" onclick="signInWithGoogle()">
-                    <img src="https://www.google.com/favicon.ico" alt="Google">
-                    Sign in with Google
+            <div class="hero-content">
+                <h1>Free Movies Online, Watch<br>Anytime Anywhere.</h1>
+                <p>The search is over! Let Cinemax help you find the perfect movie to watch tonight for free.</p>
+
+                <button class="watch-btn" onclick="signInWithGoogle()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    Watch Free
                 </button>
 
+                <div class="google-login-box">
+                    <p>Sign in with Google to continue</p>
+                    <button class="google-btn" onclick="signInWithGoogle()">
+                        <img src="https://www.google.com/favicon.ico" alt="Google">
+                        Sign in with Google
+                    </button>
+                </div>
+
                 <div class="brand">CINEMAX ENGLISH-KOREAN</div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+            <div class="feature-item">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="#e91e63">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+                <div class="feature-text">
+                    <h3>Works Worldwide</h3>
+                    <p>No other free streaming service delivers more content to and from more countries worldwide.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="#00bcd4">
+                    <path d="M18 3v2h-2V3H8v2H6V3H4v18h2v-2h2v2h8v-2h2v2h2V3h-2zM8 17H6v-2h2v2zm0-4H6v-2h2v2zm0-4H6V7h2v2zm10 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z"/>
+                </svg>
+                <div class="feature-text">
+                    <h3>Thousands of Titles</h3>
+                    <p>Choose from movies, shows, sports and music documentaries, AMC series, Live TV and more.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="#e91e63">
+                    <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0.69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                </svg>
+                <div class="feature-text">
+                    <h3>Always 100% Free</h3>
+                    <p>Welcome to instant gratification at its best. Watch now without any payment or subscription.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -450,7 +580,7 @@
                 <a href="https://wa.me/94775062608?text=.cinesubz%20StrangerThings" target="_blank" class="wa-btn">📲 Get on WhatsApp</a>
             </div>
 
-            <!-- STRANGER THINGS: TALES FROM '85 -->
+            <!-- TALES FROM '85 -->
             <div class="searchable">
                 <h3>TALES FROM '85 TRAILER</h3>
                 <iframe width="100%" height="315" src="https://www.youtube.com/embed/kajCUhg36R0"
@@ -464,7 +594,6 @@
                 <h3>STRANGER THINGS EDIT</h3>
                 <video width="100%" style="max-width:560px; border:2px solid #e50914; margin-bottom:40px;" controls>
                     <source src="myvideo.mp4" type="video/mp4">
-                    මේ Browser එක Video Support කරන්නේ නෑ
                 </video>
             </div>
 
@@ -473,7 +602,6 @@
                 <h3 style="color:#8b5cf6; text-shadow: 0 0 10px #8b5cf6;">WEDNESDAY SEASON 1-3</h3>
                 <img src="wednesday-s123.jpg" alt="Wednesday Season 123 Poster"
                      style="width:100%; max-width:560px; border:2px solid #8b5cf6; margin-bottom:20px; border-radius:8px; box-shadow: 0 0 20px #8b5cf6;">
-                <p style="color:#c4b5fd; margin-bottom:40px; font-family:'Cinzel',serif;">WEDNESDAY TRAILERS</p>
             </div>
 
             <!-- WEDNESDAY SEASON 1 TRAILER -->
@@ -499,7 +627,6 @@
                 <h3 style="color:#8b5cf6; text-shadow: 0 0 10px #8b5cf6;">WEDNESDAY FAN EDIT</h3>
                 <video width="100%" style="max-width:560px; border:2px solid #8b5cf6; margin-bottom:40px; border-radius:8px; box-shadow: 0 0 20px #8b5cf6;" controls>
                     <source src="wednesday-edit.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
             </div>
         </section>
@@ -612,4 +739,4 @@
         }
     </script>
 </body>
-</html>
+    </html>
