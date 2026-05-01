@@ -8,12 +8,10 @@
 
 ### ✨ Features
 
-- 🎥 **Auto Play Video Background** - Hero Section එකේ Wednesday Trailer
-- 🔴 **CINEMAX Watermark** - Video එකට යටින් රතු පාටින්
-- 📱 **100% Mobile Responsive** - Phone/Desktop දෙකටම හරි
+- 🎥 **cinemax main site** - සිංහල හඩ කැවු film+tv sereis 
+- 📱 **100% Mobile Responsive** - Phone/Desktop දෙකටම වැඩ කරනවා 
 - 🔍 **Search Function** - Series හොයන්න පුළුවන්
 - 💬 **WhatsApp Integration** - Direct WhatsApp Links
-- 🎨 **Netflix Dark Theme** - #141414 Background + #E50914 Red
 
 ### 📺 Available Series
 
