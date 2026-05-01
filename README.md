@@ -45,5 +45,5 @@
 
 ---
 
-**Made with 🖤 by hansaka457**  
+**Made with 🖤 by hansaka + peksha**  
 **© 2026 CINEMAX. Fan Made Website.**
