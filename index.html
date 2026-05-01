@@ -682,7 +682,30 @@ window.onload = function() {
   .netflix-hero h1 { font-size: 32px; }
   .netflix-hero p { font-size: 18px; }
   .netflix-hero { padding: 80px 15px; }
+}/* Netflix Hero Background + Overlay */
+.netflix-hero {
+    position: relative !important;
+    background: url('https://wallpapercave.com/wp/wp1839578.jpg') center/cover no-repeat !important;
+    min-height: 100vh !important;
+    z-index: 1 !important;
 }
+
+.netflix-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    background-image: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.9) 100%);
+    z-index: -1;
+}
+
+.netflix-hero .content {
+    position: relative;
+    z-index: 2;
+    }
 </style>
 
 <div class="netflix-hero">
