@@ -19,17 +19,16 @@
     background: url('https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/LK-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg') center/cover no-repeat fixed !important;
         }
         
-        h1 {
-    font-family: 'Cinzel', serif;
-    font-size: 3.5rem;
-    color: #ffffff;
-    text-shadow: none !important;
-    letter-spacing: 6px;
-    animation: none !important;
-    margin-bottom: 30px;
-    font-weight: 700;
+        .netflix-login {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: transparent !important;
         }
-        
         
         .tagline {
             font-size: 1.3rem;
@@ -105,51 +104,37 @@
     <!-- NETFLIX LOGIN LANDING START -->
 <style>
 #login-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  z-index: 99999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65) !important; /* Netflix Dark Overlay */
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .netflix-login {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-image: url('collage-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  transform: rotate(-5deg) scale(1.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: transparent !important;
 }
 
-/* Dark Overlay */
-.netflix-login::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.95) 100%);
-  z-index: 1;
-}
+
 
 .login-content {
   position: relative;
   z-index: 2;
   max-width: 700px;
   padding: 20px;
-  transform: rotate(5deg) scale(0.9);
-}
+  
 
 .login-content h1 {
   font-size: 52px;
@@ -157,8 +142,7 @@
   color: #fff;
   margin: 0 0 20px 0;
   line-height: 1.2;
-  text-shadow: 0 0 20px #e50914, 0 0 40px #e50914;
-}
+  
 
 .login-content p {
   font-size: 20px;
