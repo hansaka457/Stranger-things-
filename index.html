@@ -21,28 +21,42 @@
         }
         
         .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            backg round: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-            text-align: center;
-            padding: 20px;
-        }
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative !important;
+    background: url('https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/LK-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg') center/cover no-repeat !important;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6) !important;
+    z-index: 1;
+}
+
+.hero > * {
+    position: relative !important;
+    z-index: 2 !important;
+}
         
         h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 3.5rem;
-            color: #ff0000;
-            text-shadow: 
-                0 0 5px #fff,
-                0 0 10px #fff,
-                0 0 20px #ff0000,
-                0 0 40px #ff0000;
-            letter-spacing: 8px;
-            animation: flicker 3s infinite alternate;
-            margin-bottom: 30px;
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    color: #ffffff;
+    text-shadow: none !important;
+    letter-spacing: 6px;
+    animation: none !important;
+    margin-bottom: 30px;
+    font-weight: 700;
         }
         
         @keyframes flicker {
@@ -67,11 +81,14 @@
         }
         
         .quote {
-            font-size: 1.1rem;
-            color: #ff0000;
-            font-style: italic;
-            margin-top: 20px;
+    font-size: 1.1rem;
+    color: #e50914;
+    font-style: italic;
+    margin-top: 20px;
+    text-shadow: none !important;
+    font-weight: 600;
         }
+        
         
         .btn {
             margin-top: 40px;
