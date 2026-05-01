@@ -3,827 +3,496 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stranger Things - Fan Site</title>
+    <title>CINEMAX - Unlimited TV Shows & Movies</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-    
+
         body, html {
-    margin: 0 !important;
-    padding: 0 !important;
-    background: url('https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/LK-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg') center/cover no-repeat fixed !important;
+            margin: 0!important;
+            padding: 0!important;
+            height: 100%!important;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
         }
-        
-        .netflix-login {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: transparent !important;
+
+        /* Netflix Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/LK-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg') center/cover no-repeat;
+            z-index: -2;
         }
-        
-        .tagline {
+
+        /* Login Overlay */
+        #login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65)!important;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+       .netflix-login {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: transparent!important;
+        }
+
+       .login-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+       .login-content h1 {
+            font-size: 52px;
+            font-weight: 900;
+            color: #fff;
+            margin: 0 0 20px 0;
+            line-height: 1.1;
+        }
+
+       .login-content p {
+            font-size: 20px;
+            color: #fff;
+            margin: 0 0 10px 0;
+        }
+
+       .login-content.sub-text {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+       .login-content.brand {
+            color: #e50914;
+            font-size: 36px;
+            font-weight: 900;
+            font-family: 'Arial Black', sans-serif;
+            letter-spacing: 3px;
+            margin-top: 40px;
+        }
+
+        /* Google Button */
+       .google-btn {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.3s;
+        }
+
+       .google-btn:hover {
+            background: #f1f1f1;
+            transform: scale(1.05);
+        }
+
+       .google-btn img {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* User Profile Bar */
+        #userProfile {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 99998;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0,0,0,0.8);
+            padding: 8px 15px;
+            border-radius: 25px;
+            border: 2px solid #e50914;
+            box-shadow: 0 0 15px rgba(229,9,20,0.5);
+        }
+
+        #userPhoto {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid #e50914;
+            object-fit: cover;
+        }
+
+        #userName {
+            color: #fff;
+            font-size: 13px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        #userEmail {
+            color: #aaa;
+            font-size: 10px;
+            line-height: 1;
+        }
+
+       .logout-btn {
+            background: #e50914;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Main Site */
+        #main-site {
+            display: none;
+        }
+
+       .hero {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+       .hero h1 {
+            color: #e50914;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-family: 'Cinzel', serif;
+        }
+
+       .tagline {
             font-size: 1.3rem;
             color: #ccc;
             margin-bottom: 10px;
             letter-spacing: 2px;
         }
-        
-        .quote {
-    font-size: 1.1rem;
-    color: #e50914;
-    font-style: italic;
-    margin-top: 20px;
-    text-shadow: none !important;
-    font-weight: 600;
+
+       .quote {
+            font-size: 1.1rem;
+            color: #e50914;
+            font-style: italic;
+            margin-top: 20px;
+            font-weight: 600;
         }
-        
-        
-        .btn {
+
+       .btn {
             margin-top: 40px;
             padding: 12px 30px;
             background: transparent;
-            border: 2px solid #ff0000;
-            color: #ff0000;
+            border: 2px solid #e50914;
+            color: #e50914;
             font-size: 1rem;
             cursor: pointer;
             transition: 0.3s;
             text-decoration: none;
             display: inline-block;
         }
-        
-        .btn:hover {
-            background: #ff0000;
+
+       .btn:hover {
+            background: #e50914;
             color: #000;
-            box-shadow: 0 0 20px #ff0000;
+            box-shadow: 0 0 20px #e50914;
         }
-        
-        .footer {
-            position: absolute;
-            bottom: 20px;
+
+       .footer {
+            margin-top: 60px;
             font-size: 0.9rem;
             color: #555;
         }
-        
-        @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; letter-spacing: 4px; }
-            .tagline { font-size: 1rem; }
+
+        /* Hero Slider */
+       .hero-slider {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 450px;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(229,9,20,0.3);
+            background: #000;
+        }
+
+       .hero-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+       .hero-slide.active {
+            opacity: 1;
+        }
+
+       .hero-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+       .hero-dots {
+            text-align: center;
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            z-index: 10;
+        }
+
+       .hero-dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: rgba(255,255,255,0.4);
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+       .hero-dot.active {
+            background-color: #e50914;
+            box-shadow: 0 0 10px #e50914;
+        }
+
+        @media (max-width: 768px) {
+           .login-content h1 { font-size: 36px; }
+           .login-content.brand { font-size: 28px; }
+           .hero-slider { height: 250px; }
+           .hero h1 { font-size: 2.5rem; letter-spacing: 4px; }
         }
     </style>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
- <body>
-<!-- User Profile Bar -->
-<div id="userProfile" style="position: fixed; top: 15px; right: 15px; z-index: 99999; display: none; align-items: center; gap: 10px; background: rgba(0,0,0,0.8); padding: 8px 15px; border-radius: 25px; border: 2px solid #ff0000; box-shadow: 0 0 15px rgba(255,0,0,0.5);">
-    <img id="userPhoto" src="" style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #ff0000; object-fit: cover;">
-    <div style="display: flex; flex-direction: column;">
-        <span id="userName" style="color: #fff; font-size: 13px; font-weight: bold; line-height: 1;"></span>
-        <span id="userEmail" style="color: #aaa; font-size: 10px; line-height: 1;"></span>
+<body>
+    <!-- User Profile Bar -->
+    <div id="userProfile">
+        <img id="userPhoto" src="">
+        <div style="display: flex; flex-direction: column;">
+            <span id="userName"></span>
+            <span id="userEmail"></span>
+        </div>
+        <button class="logout-btn" onclick="logoutUser()">Logout</button>
     </div>
-    <button onclick="logoutUser()" style="background: #ff0000; color: white; border: none; padding: 6px 12px; border-radius: 15px; cursor: pointer; font-size: 12px; font-weight: bold;">Logout</button>
-</div>
 
-<!-- Google Login Config -->
-<div id="g_id_onload"
-     data-client_id="43603158205-l3c6pv1o6mu8j53ptic93p0u22irspjs.apps.googleusercontent.com"
-     data-callback="handleCredentialResponse"
-     data-auto_prompt="false">
-</div>
-
-<!-- NETFLIX LOGIN LANDING START -->
-
- 
-    <!-- NETFLIX LOGIN LANDING START -->
-<style>
-#login-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.65) !important; /* Netflix Dark Overlay */
-    z-index: 99999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.netflix-login {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: transparent !important;
-}
-
-
-
-.login-content {
-  position: relative;
-  z-index: 2;
-  max-width: 700px;
-  padding: 20px;
-  
-
-.login-content h1 {
-  font-size: 52px;
-  font-weight: 900;
-  color: #fff;
-  margin: 0 0 20px 0;
-  line-height: 1.2;
-  
-
-.login-content p {
-  font-size: 20px;
-  color: #fff;
-  margin: 0 0 10px 0;
-}
-
-.login-content .sub-text {
-  font-size: 18px;
-  margin-bottom: 30px;
-}
-
-/* Google Button */
-.google-btn {
-  background: #fff;
-  color: #000;
-  border: none;
-  padding: 15px 40px;
-  font-size: 18px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  transition: 0.3s;
-}
-
-.google-btn:hover {
-  background: #f1f1f1;
-  transform: scale(1.05);
-}
-
-.google-btn img {
-  width: 24px;
-  height: 24px;
-}
-
-.login-content .brand {
-  color: #e50914;
-  font-size: 36px;
-  font-weight: 900;
-  font-family: 'Arial Black', sans-serif;
-  letter-spacing: 3px;
-  margin-top: 40px;
-  text-shadow: 2px 2px 8px #000;
-}
-
-#main-site {
-  display: none;
-}
-
-@media (max-width: 600px) {
-  .login-content h1 { font-size: 36px; }
-  .login-content .brand { font-size: 28px; }
-  .login-content { transform: rotate(5deg) scale(1); }
-}
-</style>
-
-<div id="login-overlay">
-  <div class="netflix-login">
-    <div class="login-content">
-      <h1>UNLIMITED TV SHOWS<br>AND MORE</h1>
-      <p>Starts at Rs. 499. Cancel anytime.</p>
-      <p class="sub-text">Sign in with Google to continue</p>
-      
-      <button class="google-btn" onclick="signInWithGoogle()">
-        <img src="https://www.google.com/favicon.ico" alt="Google">
-        Sign in with Google
-      </button>
-      
-      <div class="brand">CINEMAX ENGLISH-KOREAN</div>
+    <!-- Google Login Config -->
+    <div id="g_id_onload"
+         data-client_id="43603158205-l3c6pv1o6mu8j53ptic93p0u22irspjs.apps.googleusercontent.com"
+         data-callback="handleCredentialResponse"
+         data-auto_prompt="false">
     </div>
-  </div>
-</div>
 
-<script src="https://accounts.google.com/gsi/client" async defer></script>
-<script>
-function signInWithGoogle() {
-  google.accounts.id.initialize({
-    client_id: '743603158205-l3c6pv1o6mu8j53ptic93p0u22irspjs.apps.googleusercontent.com',
-    callback: handleCredentialResponse
-  });
-  google.accounts.id.prompt();
-}
+    <!-- NETFLIX LOGIN OVERLAY -->
+    <div id="login-overlay">
+        <div class="netflix-login">
+            <div class="login-content">
+                <h1>UNLIMITED TV SHOWS<br>AND MORE</h1>
+                <p>Starts at Rs. 499. Cancel anytime.</p>
+                <p class="sub-text">Sign in with Google to continue</p>
 
-function handleCredentialResponse(response) {
-  document.getElementById('login-overlay').style.display = 'none';
-  document.getElementById('main-site').style.display = 'block';
-  localStorage.setItem('loggedIn', 'true');
-}
+                <button class="google-btn" onclick="signInWithGoogle()">
+                    <img src="https://www.google.com/favicon.ico" alt="Google">
+                    Sign in with Google
+                </button>
 
-window.onload = function() {
-  if(localStorage.getItem('loggedIn') === 'true') {
-    document.getElementById('login-overlay').style.display = 'none';
-    document.getElementById('main-site').style.display = 'block';
-  }
-      /* Netflix Background for Login Page */
-.netflix-login {
-    height: 100vh !important;
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    text-align: center !important;
-    position: relative !important;
-    background: url('https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/LK-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg') center/cover no-repeat !important;
-}
-
-.netflix-login::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.65) !important;
-    z-index: 1 !important;
-}
-
-.login-content {
-    position: relative !important;
-    z-index: 2 !important;
-}
-    
-}
-#login-overlay {
-    background: transparent !important;
-}
-}
-</script>
-<!-- NETFLIX LOGIN LANDING END -->
-
-<div id="main-site">
-    
-    <!-- HERO VIDEO SLIDER START -->
-<style>
-.hero-slider {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    height: 450px;
-    margin: 0 auto 30px auto;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 0 30px rgba(255,0,0,0.3);
-    background: #000;
-  }
-.hero-slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-  }
-.hero-slide.active {
-    opacity: 1;
-  }
-.hero-slide video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-.hero-dots {
-    text-align: center;
-    position: absolute;
-    bottom: 15px;
-    width: 100%;
-    z-index: 10;
-  }
-.hero-dot {
-    height: 12px;
-    width: 12px;
-    margin: 0 5px;
-    background-color: rgba(255,255,255,0.4);
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-.hero-dot.active {
-    background-color: #f00;
-    box-shadow: 0 0 10px #f00;
-  }
-  @media (max-width: 768px) {
-  .hero-slider { height: 250px; }
-  }
-</style>
-
-<div class="hero-slider">
-  <!-- VIDEO 1: frindly railway-->
-  <div class="hero-slide active">
-    <video autoplay muted loop playsinline>
-      <source src="st-trailer.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-  
-  <!-- VIDEO 2: WEDNESDAY -->
-  <div class="hero-slide">
-    <video autoplay muted loop playsinline>
-      <source src="wed-trailer.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-  
-  <div class="hero-dots">
-    <span class="hero-dot active" onclick="currentSlide(1)"></span>
-    <span class="hero-dot" onclick="currentSlide(2)"></span>
-  </div>
-</div>
-
-<script>
-  let slideIndex = 0;
-  showSlides();
-
-  function showSlides() {
-    let slides = document.getElementsByClassName("hero-slide");
-    let dots = document.getElementsByClassName("hero-dot");
-    let videos = document.querySelectorAll('.hero-slide video');
-    
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].classList.remove("active");
-      dots[i].classList.remove("active");
-      videos[i].pause(); // අනිත් Videos Pause කරනවා
-    }
-    
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}
-    
-    slides[slideIndex-1].classList.add("active");
-    dots[slideIndex-1].classList.add("active");
-    videos[slideIndex-1].play(); // දැන් පෙන්නන Video එක Play කරනවා
-    
-    setTimeout(showSlides, 8000); // තත්පර 8න් මාරු වෙනවා
-  }
-
-  function currentSlide(n) {
-    slideIndex = n - 1;
-    showSlides();
-  }
-</script>
-<!-- HERO VIDEO SLIDER END -->
-    <!-- 👇 SEARCH BAR START 👇 -->
-    <div style="text-align:center; margin:20px 0;">
-      <input type="text" id="searchInput" placeholder="Search trailers, videos..."
-             style="width:80%; max-width:400px; padding:12px; font-size:16px;
-                    border:2px solid #f00; background:#111; color:#fff;
-                    border-radius:5px; font-family:'Cinzel',serif;"
-             onkeyup="searchFunction()">
-    </div>
-    <!-- 👆 SEARCH BAR END 👆 -->
-
-     <div class="hero">
-        <h1>CINEMAX ENGLISH</h1>
-        <p class="tagline">WELCOME TO CINEMAX, HANX</p>
-        <p class="tagline">2026</p>
-        <p class="quote">"Created by cinemax."</p>
-        
-        <a href="#episodes" class="btn">ENTER THE UPSIDE DOWN</a>
-        
-        <div class="footer">
-            Fan Made Website by hansaka457 🖤 | Netflix Original
+                <div class="brand">CINEMAX ENGLISH-KOREAN</div>
+            </div>
         </div>
     </div>
-    
-     <section id="episodes" style="padding:40px 20px; background:#111; text-align:cent;">
-    <h2 style="color:#f00; font-size:2rem; margin-bottom:30px; font-family:'Cinzel',serif;">STRANGER THINGS TRAILERS</h2>
-    
-    <!-- Poster එක දාලා නම් මේ Line එක තියපන්, නැත්නම් අයින් කරපන් -->
-     <img src="poster.jpg" alt="Stranger Things Season 5 Poster" 
-     style="width:350px; max-width:90%; border:3px solid #f00; 
-            box-shadow: 0 0 25px #f00, 0 0 50px #00f, 0 0 75px #f00; 
-            margin:40px 0; border-radius:12px; 
-            transition:0.4s;" 
-     onmouseover="this.style.transform='scale(1.08) rotate(1deg)'" 
-     onmouseout="this.style.transform='scale(1) rotate(0deg)'">
-    
-    <p style="color:#fff; margin:10px 0;">Chapter One: The Vanishing of Will Byers</p>
-<p style="color:#fff; margin:10px 0;">Chapter Two: The Weirdo on Maple Street</p>
-<p style="color:#fff; margin:10px 0;">Chapter Three: Holly, Jolly</p>
 
-<!-- SEASON 1 TRAILER -->
-<div class="searchable">
-  <h3 style="color:#f00; margin-top:50px; font-family:'Cinzel',serif;">SEASON 1 TRAILER</h3>
-  <iframe width="100%" height="315" src="https://www.youtube.com/embed/b9EkMc79ZSU"
-          style="max-width:560px; border:2px solid #f00; margin-bottom:40px;"
-          frameborder="0" allowfullscreen></iframe>
+    <!-- MAIN SITE -->
+    <div id="main-site">
+        <!-- HERO VIDEO SLIDER -->
+        <div class="hero-slider">
+            <div class="hero-slide active">
+                <video autoplay muted loop playsinline>
+                    <source src="st-trailer.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="hero-slide">
+                <video autoplay muted loop playsinline>
+                    <source src="wed-trailer.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="hero-dots">
+                <span class="hero-dot active" onclick="currentSlide(1)"></span>
+                <span class="hero-dot" onclick="currentSlide(2)"></span>
+            </div>
+        </div>
 
-          <a href="https://wa.me/94775062608?text=.cinesubz%20StrangerThings" 
-         target="_blank"
-         style="display:inline-block; background:#25D366; color:#fff; padding:12px 24px; border-radius:8px; text-decoration:none; font-family:'Cinzel',serif; font-weight:bold; margin-bottom:40px; box-shadow: 0 0 15px #25D366;">
-         📲 Get on WhatsApp
-          </a>
-</div>
+        <!-- SEARCH BAR -->
+        <div style="text-align:center; margin:20px 0;">
+            <input type="text" id="searchInput" placeholder="Search trailers, videos..."
+                   style="width:80%; max-width:400px; padding:12px; font-size:16px;
+                          border:2px solid #e50914; background:#111; color:#fff;
+                          border-radius:5px; font-family:'Cinzel',serif;"
+                   onkeyup="searchFunction()">
+        </div>
 
-<!-- SEASON 2 TRAILER -->
-<div class="searchable">
-  <h3 style="color:#f00; margin-top:30px; font-family:'Cinzel',serif;">SEASON 2 TRAILER</h3>
-  <iframe width="100%" height="315" src="https://www.youtube.com/embed/R1ZXOOLMJ8s"
-          style="max-width:560px; border:2px solid #f00; margin-bottom:40px;"
-          frameborder="0" allowfullscreen></iframe>
+        <!-- HERO SECTION -->
+        <div class="hero">
+            <h1>CINEMAX ENGLISH</h1>
+            <p class="tagline">WELCOME TO CINEMAX</p>
+            <p class="tagline">2026</p>
+            <p class="quote">"Created by cinemax."</p>
+            <a href="#episodes" class="btn">ENTER THE UPSIDE DOWN</a>
+            <div class="footer">
+                Fan Made Website by hansaka457 🖤 | Netflix Original
+            </div>
+        </div>
 
-          <a href="https://wa.me/94775062608?text=.cinesubz%20StrangerThings" 
-         target="_blank"
-         style="display:inline-block; background:#25D366; color:#fff; padding:12px 24px; border-radius:8px; text-decoration:none; font-family:'Cinzel',serif; font-weight:bold; margin-bottom:40px; box-shadow: 0 0 15px #25D366;">
-         📲 Get on WhatsApp
-          </a>
-</div>
-         
-        <!-- SEASON 3 TRAILER -->
-    <div class="searchable">
-      <h3 style="color:#f00; margin-top:30px; font-family:'Cinzel',serif;">SEASON 3 TRAILER</h3>
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/XcnHOQ-cHa0"
-              style="max-width:560px; border:2px solid #f00; margin-bottom:40px;"
-              frameborder="0" allowfullscreen></iframe>
+        <!-- EPISODES SECTION -->
+        <section id="episodes" style="padding:40px 20px; background:#111; text-align:center;">
+            <h2 style="color:#e50914; font-size:2rem; margin-bottom:30px; font-family:'Cinzel',serif;">STRANGER THINGS TRAILERS</h2>
 
-        
-              <a href="https://wa.me/94775062608?text=.cinesubz%20StrangerThings" 
-         target="_blank"
-         style="display:inline-block; background:#25D366; color:#fff; padding:12px 24px; border-radius:8px; text-decoration:none; font-family:'Cinzel',serif; font-weight:bold; margin-bottom:40px; box-shadow: 0 0 15px #25D366;">
-         📲 Get on WhatsApp
-              </a>
+            <img src="poster.jpg" alt="Stranger Things Season 5 Poster"
+                 style="width:350px; max-width:90%; border:3px solid #e50914;
+                        box-shadow: 0 0 25px #e50914;
+                        margin:40px 0; border-radius:12px; transition:0.4s;"
+                 onmouseover="this.style.transform='scale(1.08)'"
+                 onmouseout="this.style.transform='scale(1)'">
+
+            <!-- Add your trailers here -->
+            <div class="searchable">
+                <h3 style="color:#e50914; margin-top:50px; font-family:'Cinzel',serif;">SEASON 1 TRAILER</h3>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/b9EkMc79ZSU"
+                        style="max-width:560px; border:2px solid #e50914; margin-bottom:40px;"
+                        frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
     </div>
 
-    <!-- SEASON 4 TRAILER -->
-    <div class="searchable">
-      <h3 style="color:#f00; margin-top:30px; font-family:'Cinzel',serif;">SEASON 4 TRAILER</h3>
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/yQEondeGvKo"
-              style="max-width:560px; border:2px solid #f00; margin-bottom:40px;"
-              frameborder="0" allowfullscreen></iframe>
-
-              <a href="https://wa.me/94775062608?text=.cinesubz%20StrangerThings" 
-         target="_blank"
-         style="display:inline-block; background:#25D366; color:#fff; padding:12px 24px; border-radius:8px; text-decoration:none; font-family:'Cinzel',serif; font-weight:bold; margin-bottom:40px; box-shadow: 0 0 15px #25D366;">
-         📲 Get on WhatsApp
-              </a>
-    </div>
-
-    <!-- SEASON 5 TRAILER -->
-    <div class="searchable">
-      <h3 style="color:#f00; margin-top:30px; font-family:'Cinzel',serif;">SEASON 5 TRAILER</h3>
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/sBEvEcpnG7k"
-              style="max-width:560px; border:2px solid #f00; margin-bottom:40px;"
-              frameborder="0" allowfullscreen></iframe>
-
-              <a href="https://wa.me/94775062608?text=.cinesubz%20StrangerThings" 
-         target="_blank"
-         style="display:inline-block; background:#25D366; color:#fff; padding:12px 24px; border-radius:8px; text-decoration:none; font-family:'Cinzel',serif; font-weight:bold; margin-bottom:40px; box-shadow: 0 0 15px #25D366;">
-         📲 Get on WhatsApp
-              </a>
-    </div>
-
-    <!-- STRANGER THINGS: TALES FROM '85 -->
-    <div class="searchable">
-      <h3 style="color:#f00; margin-top:30px; font-family:'Cinzel',serif;">TALES FROM '85 TRAILER</h3>
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/kajCUhg36R0"
-              style="max-width:560px; border:2px solid #f00; margin-bottom:40px;"
-              frameborder="0" allowfullscreen></iframe>
-
-              <a href="https://wa.me/94775062608?text=.cinesubz%20StrangerThings" 
-         target="_blank"
-         style="display:inline-block; background:#25D366; color:#fff; padding:12px 24px; border-radius:8px; text-decoration:none; font-family:'Cinzel',serif; font-weight:bold; margin-bottom:40px; box-shadow: 0 0 15px #25D366;">
-         📲 Get on WhatsApp
-              </a>
-    </div>
-
-    <!-- MY VIDEO -->
-    <div class="searchable">
-      <h3 style="color:#f00; margin-top:30px; font-family:'Cinzel',serif;">STRANGER THINGS EDIT</h3>
-      <video width="100%" style="max-width:560px; border:2px solid #f00; margin-bottom:40px;" controls>
-        <source src="myvideo.mp4" type="video/mp4">
-        මේ Browser එක Video Support කරන්නේ නෑ
-      </video>
-    </div>
-
-    <!-- WEDNESDAY SEASON 1,2,3 -->
-    <div class="searchable">
-      <h3 style="color:#8b5cf6; margin-top:60px; font-family:'Cinzel',serif; text-shadow: 0 0 10px #8b5cf6;">WEDNESDAY SEASON 3</h3>
-      <img src="wednesday-s123.jpg" 
-           alt="Wednesday Season 123 Poster"
-           style="width:100%; max-width:560px; border:2px solid #8b5cf6; margin-bottom:20px; border-radius:8px; box-shadow: 0 0 20px #8b5cf6;">
-      <p style="color:#c4b5fd; margin-bottom:40px; font-family:'Cinzel',serif;">WEDNESDAY TRAILERS</p>
-    </div>
-
-
-         <!-- WEDNESDAY TRAILERS SECTION START -->
-
-<!-- WEDNESDAY SEASON 1 TRAILER -->
-<div class="searchable">
-  <h3 style="color:#f00; margin-top:30px; font-family:'Cinzel',serif; text-shadow: 0 0 10px #f00;">WEDNESDAY SEASON 1 TRAILER</h3>
-  
-  <!-- YouTube Trailer -->
-  <iframe width="100%" height="315" src="https://www.youtube.com/embed/Di310WS8zLk"
-          style="max-width:560px; border:2px solid #8b5cf6; margin-bottom:15px; border-radius:8px; box-shadow: 0 0 20px #f00;"
-          frameborder="0" allowfullscreen></iframe>
-  
-  <!-- WhatsApp Button -->
-  <a href="https://wa.me/94775062608?text=.cinesubz%20WEDNESDAY" 
-     target="_blank"
-     style="display:inline-block; background:#25D366; color:#fff; padding:12px 24px; border-radius:8px; text-decoration:none; font-family:'Cinzel',serif; font-weight:bold; margin-bottom:40px; box-shadow: 0 0 15px #25D366; transition: 0.3s;">
-     📲 Get on WhatsApp
-  </a>
-</div>
-         <!-- NETFLIX STYLE HERO START -->
-<style>
-.netflix-hero {
-  position: relative;
-  background-color: #000;
-  padding: 140px 20px;
-  text-align: center;
-  margin: 20px 0;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-/* Angled Posters Background */
-.netflix-hero::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -10%;
-  width: 120%;
-  height: 200%;
-  background-image: url('collage-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  transform: rotate(-5deg) scale(1.2);
-  opacity: 0.4;
-  z-index: 1;
-}
-
-/* Dark Gradient Overlay */
-.netflix-hero::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.9) 70%, #000 100%);
-  z-index: 2;
-}
-
-.netflix-hero .content {
-  position: relative;
-  z-index: 3;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.netflix-hero h1 {
-  font-size: 48px;
-  font-weight: 900;
-  color: #fff;
-  margin: 0 0 15px 0;
-  line-height: 1.2;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-}
-
-.netflix-hero p {
-  font-size: 20px;
-  color: #fff;
-  margin: 0 0 10px 0;
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
-}
-
-.netflix-hero .sub-text {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.netflix-hero .input-group {
-  margin-top: 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
-.netflix-hero input {
-  padding: 18px 20px;
-  font-size: 16px;
-  width: 450px;
-  max-width: 90%;
-  border: 1px solid rgba(255,255,255,0.5);
-  border-radius: 4px;
-  background: rgba(0,0,0,0.7);
-  color: #fff;
-  outline: none;
-}
-
-.netflix-hero input::placeholder {
-  color: #aaa;
-}
-
-.netflix-hero button {
-  padding: 15px 30px;
-  font-size: 20px;
-  background: #e50914;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.netflix-hero button:hover {
-  background: #f40612;
-}
-
-.netflix-hero .brand {
-  color: #e50914;
-  font-size: 32px;
-  font-weight: 900;
-  font-family: 'Arial Black', sans-serif;
-  letter-spacing: 2px;
-  margin-top: 25px;
-  text-shadow: 2px 2px 8px #000;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .netflix-hero h1 { font-size: 32px; }
-  .netflix-hero p { font-size: 18px; }
-  .netflix-hero { padding: 80px 15px; }
-}/* Netflix Hero Background + Overlay */
-.netflix-hero {
-    position: relative !important;
-    background: url('bg.jpg') center/cover no-repeat !important;
-    min-height: 100vh !important;
-    z-index: 1 !important;
-}
-
-.netflix-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.65);
-    background-image: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.9) 100%);
-    z-index: -1;
-}
-
-.netflix-hero .content {
-    position: relative;
-    z-index: 2;
-    }
-</style>
-
-<div class="netflix-hero">
-  <div class="content">
-    <h1>UNLIMITED TV SHOWS<br>AND MORE</h1>
-    <p>Starts at Rs. 499. Cancel anytime.</p>
-    <p class="sub-text">Ready to watch? Enter your WhatsApp number to get started.</p>
-    
-    <div class="input-group">
-      <input type="text" id="waNumber" placeholder="WhatsApp Number">
-      <button onclick="window.open('https://wa.me/94775062608?text=.cinesubz%20WEDNESDAY', '_blank')">
-        Get Started >
-      </button>
-    </div>
-    
-    <div class="brand">CINEMAX ENGLISH-KOREAN</div>
-  </div>
-</div>
-<!-- NETFLIX STYLE HERO END -->
-
-<!-- WEDNESDAY SEASON 2 PART 2 TRAILER -->
-<div class="searchable">
-  <h3 style="color:#8b5cf6; margin-top:30px; font-family:'Cinzel',serif; text-shadow: 0 0 10px #8b5cf6;">WEDNESDAY SEASON 2 PART 2 TRAILER</h3>
-  
-  <!-- YouTube Trailer -->
-  <iframe width="100%" height="315" src="https://www.youtube.com/embed/u7Z9i5S6s5k"
-          style="max-width:560px; border:2px solid #8b5cf6; margin-bottom:15px; border-radius:8px; box-shadow: 0 0 20px #8b5cf6;"
-          frameborder="0" allowfullscreen></iframe>
-  
-  <!-- WhatsApp Button -->
-  <a href="https://wa.me/94775062608?text=.cinesubz%20WEDNESDAY" 
-     target="_blank"
-     style="display:inline-block; background:#25D366; color:#fff; padding:12px 24px; border-radius:8px; text-decoration:none; font-family:'Cinzel',serif; font-weight:bold; margin-bottom:40px; box-shadow: 0 0 15px #25D366; transition: 0.3s;">
-     📲 Get on WhatsApp
-  </a>
-</div>
-
-<!-- WEDNESDAY TRAILERS SECTION END -->
-         
-         <!-- WEDNESDAY FAN EDIT -->
-    <div class="searchable">
-      <h3 style="color:#8b5cf6; margin-top:30px; font-family:'Cinzel',serif; text-shadow: 0 0 10px #8b5cf6;">WEDNESDAY FAN EDIT</h3>
-      <video width="100%" style="max-width:560px; border:2px solid #8b5cf6; margin-bottom:40px; border-radius:8px; box-shadow: 0 0 20px #8b5cf6;" controls>
-        <source src="wednesday-edit.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-        
-    </div>
-    
-
-  <!-- 👇 SEARCH SCRIPT 👇 -->
-  <script>
-    function searchFunction() {
-      var input = document.getElementById('searchInput');
-      var filter = input.value.toUpperCase();
-      var items = document.getElementsByClassName('searchable');
-
-      for (var i = 0; i < items.length; i++) {
-        var text = items[i].innerText || items[i].textContent;
-        if (text.toUpperCase().indexOf(filter) > -1) {
-          items[i].style.display = "";
-        } else {
-          items[i].style.display = "none";
-        }
-      }
-    }
-  <script>
-// 🔥 උඹේ Client ID එක මෙතනත් දාපන්
-const CLIENT_ID = "743603158205-l3c6pv1o6mu8j53ptic93p0u22irspjs.apps.googleusercontent.com";
-
-function handleCredentialResponse(response) {
-    const data = decodeJwtResponse(response.credential);
-    localStorage.setItem('google_jwt', response.credential);
-    localStorage.setItem('userName', data.name);
-    localStorage.setItem('userPhoto', data.picture);
-    localStorage.setItem('userEmail', data.email);
-    showProfile();
-}
-
-function showProfile() {
-    const name = localStorage.getItem('userName');
-    const photo = localStorage.getItem('userPhoto');
-    const email = localStorage.getItem('userEmail');
-    if (name && photo) {
-        document.getElementById('userName').innerText = name;
-        document.getElementById('userEmail').innerText = email;
-        document.getElementById('userPhoto').src = photo;
-        document.getElementById('userProfile').style.display = 'flex';
-    }
-}
-
-function logoutUser() {
-    google.accounts.id.disableAutoSelect();
-    localStorage.clear();
-    document.getElementById('userProfile').style.display = 'none';
-    location.reload();
-}
-
-function decodeJwtResponse(token) {
-    var base64Url = token.split('.')[1];
-    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-    return JSON.parse(jsonPayload);
-}
-
-window.onload = function() {
-    showProfile();
-    const init = setInterval(() => {
-        if (typeof google!== 'undefined') {
-            clearInterval(init);
+    <script>
+        // Google Login
+        function signInWithGoogle() {
             google.accounts.id.initialize({
-                client_id: CLIENT_ID,
+                client_id: '43603158205-l3c6pv1o6mu8j53ptic93p0u22irspjs.apps.googleusercontent.com',
                 callback: handleCredentialResponse
             });
-            if (!localStorage.getItem('google_jwt')) {
-                google.accounts.id.prompt();
+            google.accounts.id.prompt();
+        }
+
+        function handleCredentialResponse(response) {
+            const data = decodeJwtResponse(response.credential);
+            localStorage.setItem('google_jwt', response.credential);
+            localStorage.setItem('userName', data.name);
+            localStorage.setItem('userPhoto', data.picture);
+            localStorage.setItem('userEmail', data.email);
+            localStorage.setItem('loggedIn', 'true');
+            showMainSite();
+        }
+
+        function showMainSite() {
+            document.getElementById('login-overlay').style.display = 'none';
+            document.getElementById('main-site').style.display = 'block';
+            showProfile();
+        }
+
+        function showProfile() {
+            const name = localStorage.getItem('userName');
+            const photo = localStorage.getItem('userPhoto');
+            const email = localStorage.getItem('userEmail');
+            if (name && photo) {
+                document.getElementById('userName').innerText = name;
+                document.getElementById('userEmail').innerText = email;
+                document.getElementById('userPhoto').src = photo;
+                document.getElementById('userProfile').style.display = 'flex';
             }
         }
-    }, 100);
-}
-</script>
+
+        function logoutUser() {
+            google.accounts.id.disableAutoSelect();
+            localStorage.clear();
+            document.getElementById('userProfile').style.display = 'none';
+            location.reload();
+        }
+
+        function decodeJwtResponse(token) {
+            var base64Url = token.split('.')[1];
+            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            return JSON.parse(jsonPayload);
+        }
+
+        // Hero Slider
+        let slideIndex = 0;
+        function showSlides() {
+            let slides = document.getElementsByClassName("hero-slide");
+            let dots = document.getElementsByClassName("hero-dot");
+            let videos = document.querySelectorAll('.hero-slide video');
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+                dots[i].classList.remove("active");
+                videos[i].pause();
+            }
+
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+
+            slides[slideIndex-1].classList.add("active");
+            dots[slideIndex-1].classList.add("active");
+            videos[slideIndex-1].play();
+
+            setTimeout(showSlides, 8000);
+        }
+
+        function currentSlide(n) {
+            slideIndex = n - 1;
+            showSlides();
+        }
+
+        // Search Function
+        function searchFunction() {
+            var input = document.getElementById('searchInput');
+            var filter = input.value.toUpperCase();
+            var items = document.getElementsByClassName('searchable');
+
+            for (var i = 0; i < items.length; i++) {
+                var text = items[i].innerText || items[i].textContent;
+                if (text.toUpperCase().indexOf(filter) > -1) {
+                    items[i].style.display = "";
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+        }
+
+        // Check Login on Load
+        window.onload = function() {
+            if(localStorage.getItem('loggedIn') === 'true') {
+                showMainSite();
+            }
+            showSlides();
+        }
+    </script>
 </body>
 </html>
-  <!-- 👆 SEARCH SCRIPT 👆 -->
-</div> <!--main-site end --> 
-</body>
-    </html>
