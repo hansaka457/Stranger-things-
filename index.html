@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CINEMAX - Watch Movies & TV Shows Online</title>
+    <title>CINEMAX - Wednesday</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Bebas+Neue&display=swap');
 
@@ -14,104 +14,69 @@
 .netflix-header.scrolled {background:#141414}
 .netflix-logo {color:#E50914; font-size:32px; font-weight:900; font-family:'Bebas Neue',sans-serif; letter-spacing:2px; cursor:pointer}
 
-        /* HERO - GITHUB MP4 */
-.hero-banner {position:relative; height:85vh; width:100%; display:flex; align-items:flex-end; padding:0 4% 150px 4%; overflow:hidden}
+        /* HERO - NETFLIX STYLE */
+.hero-banner {position:relative; height:100vh; width:100%; display:flex; align-items:center; padding:0 4%; overflow:hidden}
 .hero-video {position:absolute; top:50%; left:50%; min-width:100%; min-height:100%; width:auto; height:auto; transform:translate(-50%,-50%); z-index:0; object-fit:cover}
-.hero-overlay {position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(to top,#141414 0%,transparent 50%,rgba(0,0,0,0.4) 100%); z-index:1}
+.hero-overlay {position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(to top,#141414 10%,transparent 60%,rgba(0,0,0,0.8) 100%); z-index:1}
 .hero-content {max-width:600px; z-index:2; position:relative}
-.hero-title {font-size:3.5rem; font-weight:700; margin-bottom:20px; text-shadow:2px 2px 4px rgba(0,0,0,0.8); line-height:1.1}
-.hero-desc {font-size:1.2rem; margin-bottom:25px; text-shadow:2px 2px 4px rgba(0,0,0,0.8); font-weight:400; line-height:1.4}
+.hero-logo {width:400px; margin-bottom:30px; filter:drop-shadow(2px 2px 4px rgba(0,0,0,0.8))}
+.hero-meta {display:flex; gap:15px; align-items:center; margin-bottom:20px; font-size:1rem; color:#ccc}
+.hero-badge {background:#E50914; padding:2px 8px; border-radius:3px; font-weight:700; font-size:0.85rem}
+.hero-desc {font-size:1.2rem; margin-bottom:25px; text-shadow:2px 2px 4px rgba(0,0,0,0.8); font-weight:400; line-height:1.4; max-width:500px}
 .hero-buttons {display:flex; gap:15px}
 .btn-play {background:#fff; color:#000; border:none; padding:12px 30px; font-size:1.1rem; border-radius:4px; cursor:pointer; font-weight:700; display:flex; align-items:center; gap:10px; transition:0.2s; text-decoration:none}
 .btn-play:hover {background:rgba(255,255,255,0.75)}
 .btn-info {background:rgba(109,109,110,0.7); color:#fff; border:none; padding:12px 30px; font-size:1.1rem; border-radius:4px; cursor:pointer; font-weight:700; display:flex; align-items:center; gap:10px; transition:0.2s}
-.volume-btn {position:absolute; right:4%; bottom:180px; z-index:3; width:40px; height:40px; border-radius:50%; border:2px solid #fff; background:rgba(0,0,0,0.5); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:18px; transition:0.2s}
+.volume-btn {position:absolute; right:4%; bottom:120px; z-index:3; width:40px; height:40px; border-radius:50%; border:2px solid #fff; background:rgba(0,0,0,0.5); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:18px; transition:0.2s}
 .volume-btn:hover {background:rgba(255,255,255,0.2)}
 
-.search-container {padding:20px 4%; background:#141414}
-.search-box {width:100%; max-width:500px; padding:12px 20px; font-size:16px; border:1px solid #333; background:#000; color:#fff; border-radius:4px}
+.content-section {padding:30px 4% 50px 4%; margin-top:-100px; position:relative; z-index:2}
 
-.content-section {padding:30px 4% 50px 4%}
-.row-title {font-size:1.4rem; font-weight:700; margin-bottom:15px; color:#e5e5e5}
-.playlist-header {font-size:1.6rem; font-weight:700; margin-bottom:25px; color:#e5e5e5}
+        /* NETFLIX EPISODES SECTION */
+.episodes-container {background:#181818; border-radius:8px; padding:30px; margin-top:30px}
+.episodes-header {display:flex; justify-content:space-between; align-items:center; margin-bottom:25px; flex-wrap:wrap; gap:15px}
+.episodes-header h2 {font-size:1.8rem; font-weight:700}
+.season-dropdown {background:#2f2f2f; color:#fff; border:1px solid #4d4d4d; padding:10px 20px; border-radius:4px; font-size:1rem; cursor:pointer; font-weight:600}
 
-        /* SERIES DETAILS + YOUTUBE SHORTS */
-.series-details-box {position:relative; background:#1a1a1a; border-radius:8px; overflow:hidden; margin:30px 0; border:1px solid #333; height:400px}
-.series-shorts-wrapper {position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; overflow:hidden}
-.series-shorts {position:absolute; top:50%; left:50%; width:177.78vh; height:100vh; transform:translate(-50%,-50%); border:none; pointer-events:none; opacity:0.4}
-.series-overlay {position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(to top,#1a1a1a 0%,transparent 60%,rgba(0,0,0,0.6) 100%); z-index:1}
-.series-overlay-content {position:absolute; bottom:30px; left:30px; z-index:2; max-width:700px}
-.series-overlay-content h3 {font-size:2.5rem; text-shadow:2px 2px 4px rgba(0,0,0,0.8); margin-bottom:10px}
-.series-overlay-content p {color:#ccc; font-size:1rem; line-height:1.5; text-shadow:1px 1px 2px rgba(0,0,0,0.8)}
-.series-meta {color:#999; font-size:0.9rem; margin:10px 0}
-
-        /* NETFLIX STYLE PLAYLIST */
-.playlist-box {background:#1a1a1a; border-radius:8px; padding:25px; margin:30px 0; border:1px solid #333}
-.playlist-box-header {display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:15px}
-.playlist-box h3 {font-size:1.3rem; color:#E50914}
 .download-all-btn {background:#E50914; color:#fff; padding:10px 20px; border-radius:4px; text-decoration:none; font-size:0.95rem; font-weight:700; transition:0.2s; border:none; cursor:pointer; display:flex; align-items:center; gap:8px}
 .download-all-btn:hover {background:#f40612}
 
-.episode-list {display:flex; flex-direction:column; gap:12px}
-.episode-item {background:#222; border-radius:6px; padding:16px; transition:0.2s; border:1px solid #333}
-.episode-item:hover {background:#2a2a2a; border-color:#444}
-.episode-item h4 {font-size:1rem; margin-bottom:12px; color:#fff; font-weight:500}
-.episode-btns {display:flex; gap:10px; flex-wrap:wrap}
-.ep-btn {padding:8px 16px; border-radius:4px; text-decoration:none; font-size:0.9rem; font-weight:700; transition:0.2s; display:flex; align-items:center; gap:6px; border:none; cursor:pointer}
+        /* EPISODE LIST - NETFLIX STYLE */
+.episodes-list {display:flex; flex-direction:column; gap:2px}
+.episode-row {background:#2f2f2f; padding:20px; display:flex; gap:20px; align-items:flex-start; transition:0.2s; cursor:pointer; border-left:4px solid transparent}
+.episode-row:hover {background:#383838; border-left-color:#E50914}
+.episode-num {font-size:1.8rem; font-weight:700; color:#808080; min-width:40px; text-align:center}
+.episode-thumb {width:140px; height:80px; border-radius:4px; object-fit:cover; background:#1a1a1a; flex-shrink:0}
+.episode-details {flex:1}
+.episode-title {font-size:1rem; font-weight:700; margin-bottom:6px; color:#fff}
+.episode-desc {font-size:0.9rem; color:#d2d2d2; line-height:1.4; margin-bottom:10px}
+.episode-meta {font-size:0.85rem; color:#808080}
+.episode-actions {display:flex; gap:10px; align-items:center}
+.ep-btn {padding:8px 16px; border-radius:4px; text-decoration:none; font-size:0.9rem; font-weight:700; transition:0.2s; display:flex; align-items:center; gap:6px; border:none; cursor:pointer; white-space:nowrap}
 .ep-btn.yt {background:#E50914; color:#fff}
 .ep-btn.yt:hover {background:#f40612}
-.ep-btn.srt {background:#00a862; color:#fff}
-.ep-btn.srt:hover {background:#008f54}
-
-.tabs {display:flex; gap:1rem; margin:30px 0 20px 0}
-.tab {background:#222; color:#aaa; padding:10px 20px; border:none; border-radius:4px; cursor:pointer; font-weight:600}
-.tab.active {background:#E50914; color:#fff}
-
-.episode-grid {display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px}
-.episode-card {background:#1a1a1a; border-radius:8px; overflow:hidden; transition:transform 0.3s}
-.episode-card:hover {transform:scale(1.05)}
-.ep-thumb {width:100%; height:170px; object-fit:cover; background:#2f2f2f}
-.ep-info {padding:15px}
-.ep-info h3 {font-size:1.1rem; margin-bottom:8px; color:#fff}
-.ep-info p {font-size:0.85rem; color:#999; line-height:1.4; margin-bottom:10px}
-.download-btn {display:inline-block; background:#00a862; color:#fff; padding:8px 16px; border-radius:4px; text-decoration:none; font-size:0.9rem; font-weight:700; transition:0.2s; margin-right:8px; margin-bottom:8px}
-.download-btn:hover {background:#008f54}
-
-.row-content {display:flex; gap:8px; overflow-x:auto; overflow-y:hidden; padding:10px 0 20px 0; scroll-behavior:smooth}
-.row-content::-webkit-scrollbar {height:8px}
-.row-content::-webkit-scrollbar-thumb {background:#333; border-radius:4px}
-.movie-card {min-width:220px; height:125px; border-radius:4px; overflow:hidden; cursor:pointer; transition:transform 0.3s; position:relative; background:#2f2f2f; flex-shrink:0}
-.movie-card:hover {transform:scale(1.4); z-index:10}
-.movie-card img {width:100%; height:100%; object-fit:cover}
-
-.series-grid {display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; padding:40px 4%}
-.series-box {background:#1a1a1a; border-radius:8px; overflow:hidden; transition:transform 0.3s; cursor:pointer}
-.series-box:hover {transform:scale(1.05)}
-.series-poster {width:100%; height:170px; object-fit:cover; background:#2f2f2f; display:block}
-.series-details {padding:15px}
-.series-details h3 {font-size:1.1rem; margin-bottom:8px; color:#fff}
-.series-details p {font-size:0.85rem; color:#999; line-height:1.4; margin-bottom:10px}
+.ep-btn.srt {background:#fff; color:#000}
+.ep-btn.srt:hover {background:rgba(255,255,255,0.75)}
 
 .netflix-footer {padding:60px 4%; background:#141414; border-top:1px solid #333; text-align:center; color:#808080; font-size:0.85rem; margin-top:50px}
 
         @media (max-width:768px) {
- .netflix-header {padding:0 20px}
- .netflix-logo {font-size:24px}
- .hero-banner {height:70vh; padding:0 20px 100px 20px}
- .hero-title {font-size:2rem}
- .hero-desc {font-size:0.95rem}
- .hero-buttons {flex-direction:column; width:100%}
- .btn-play,.btn-info {width:100%; justify-content:center}
- .volume-btn {bottom:120px; right:20px}
- .series-shorts {width:100%; height:177.78vw; max-width:100vw; max-height:100vh}
- .movie-card {min-width:140px; height:80px}
- .movie-card:hover {transform:scale(1.15)}
- .series-grid {grid-template-columns:1fr; padding:30px 20px}
- .episode-grid {grid-template-columns:1fr}
- .playlist-box-header {flex-direction:column; align-items:flex-start}
- .series-overlay-content h3 {font-size:1.8rem}
- .series-overlay-content {left:20px; bottom:20px; right:20px}
- .series-details-box {height:300px}
+.netflix-header {padding:0 20px}
+.netflix-logo {font-size:24px}
+.hero-banner {height:80vh; padding:0 20px 80px 20px}
+.hero-logo {width:250px}
+.hero-meta {font-size:0.85rem; flex-wrap:wrap}
+.hero-desc {font-size:1rem}
+.hero-buttons {flex-direction:column; width:100%}
+.btn-play,.btn-info {width:100%; justify-content:center}
+.volume-btn {bottom:100px; right:20px}
+.episode-row {flex-direction:column; padding:15px}
+.episode-left {flex-direction:column; width:100%}
+.episode-thumb {width:100%; height:180px}
+.episode-num {min-width:auto}
+.episodes-header {flex-direction:column; align-items:flex-start}
+.episode-actions {width:100%; justify-content:stretch}
+.ep-btn {flex:1; justify-content:center}
         }
     </style>
 </head>
@@ -120,7 +85,7 @@
         <div class="netflix-logo">CINEMAX</div>
     </header>
 
-    <!-- HERO - GITHUB MP4 -->
+    <!-- HERO - NETFLIX STYLE -->
     <div class="hero-banner">
         <video class="hero-video" autoplay muted loop playsinline id="heroVideo">
             <source src="wednesday-edit.mp4" type="video/mp4">
@@ -129,7 +94,13 @@
         <div class="hero-overlay"></div>
         <button class="volume-btn" id="volumeBtn" onclick="toggleMute()">🔇</button>
         <div class="hero-content">
-            <h1 class="hero-title">WEDNESDAY</h1>
+            <img src="wednesday-logo.png" alt="Wednesday" class="hero-logo" onerror="this.style.display='none'">
+            <div class="hero-meta">
+                <span class="hero-badge">NEW</span>
+                <span>2022</span>
+                <span>2 Seasons</span>
+                <span>TV-14</span>
+            </div>
             <p class="hero-desc">Smart, sarcastic and a little dead inside, Wednesday Addams investigates a murder spree while making new friends and foes at Nevermore Academy.</p>
             <div class="hero-buttons">
                 <a href="https://www.youtube.com/watch?v=Di310WS8zLk" target="_blank" class="btn-play">
@@ -137,114 +108,29 @@
                     Play
                 </a>
                 <button class="btn-info">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 6.48 2 12s4.48 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
                     More Info
                 </button>
             </div>
         </div>
     </div>
 
-    <div class="search-container">
-        <input type="text" class="search-box" id="searchInput" placeholder="Search titles..." onkeyup="searchContent()">
-    </div>
-
-    <!-- PLAYLIST SECTION - NETFLIX STYLE -->
+    <!-- WEDNESDAY EPISODES - NETFLIX STYLE -->
     <div class="content-section">
-        <h2 class="playlist-header">Wednesday Season One</h2>
-
-        <div class="series-details-box">
-            <div class="series-shorts-wrapper">
-                <iframe class="series-shorts"
-                    src="https://www.youtube.com/embed/xrb0uSvYRPs?autoplay=1&mute=1&loop=1&playlist=xrb0uSvYRPs&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
-                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-                </iframe>
+        <div class="episodes-container">
+            <div class="episodes-header">
+                <h2>Episodes</h2>
+                <div style="display:flex; gap:15px; align-items:center; flex-wrap:wrap">
+                    <select class="season-dropdown" id="seasonSelect" onchange="loadSeason(this.value)">
+                        <option value="1">Season 1</option>
+                        <option value="2">Season 2</option>
+                    </select>
+                    <button class="download-all-btn" onclick="downloadAllSRT(currentSeason)">
+                        ⬇️ Download All Subtitles
+                    </button>
+                </div>
             </div>
-            <div class="series-overlay"></div>
-            <div class="series-overlay-content">
-                <h3>WEDNESDAY</h3>
-                <div class="series-meta">2022 • Mystery • Comedy • Supernatural • 2 Seasons</div>
-                <p>A sleuthing, supernaturally infused mystery charting Wednesday Addams' years as a student at Nevermore Academy. She attempts to master her emerging psychic ability, thwart a monstrous killing spree and solve the supernatural mystery that embroiled her parents 25 years ago.</p>
-                <p style="margin-top:10px;color:#E50914;font-weight:600">Starring: Jenna Ortega, Gwendoline Christie, Riki Lindhome</p>
-            </div>
-        </div>
-
-        <!-- NETFLIX STYLE EPISODE LIST WITH YT + SRT -->
-        <div class="playlist-box">
-            <div class="playlist-box-header">
-                <h3>📺 Wednesday Season 1 - Video + Subtitles</h3>
-                <button class="download-all-btn" onclick="downloadAllSRT(1)">
-                    ⬇️ Download All SRT Files
-                </button>
-            </div>
-            <div class="episode-list" id="episodePlaylist"></div>
-        </div>
-
-        <div class="tabs">
-            <button class="tab active" onclick="loadSeason(1)">Season 1</button>
-            <button class="tab" onclick="loadSeason(2)">Season 2</button>
-        </div>
-
-        <div class="episode-grid" id="episodeList"></div>
-    </div>
-
-    <div class="content-section">
-        <h2 class="row-title">Trending Now</h2>
-        <div class="row-content">
-            <div class="movie-card"><img src="poster.jpg" alt="Stranger Things"></div>
-            <div class="movie-card"><img src="wednesday-s123.jpg" alt="Wednesday"></div>
-            <div class="movie-card"><img src="one-piece.jpg" alt="One Piece"></div>
-            <div class="movie-card"><img src="my-demon.jpg" alt="My Demon"></div>
-            <div class="movie-card"><img src="sweet-home.jpg" alt="Sweet Home"></div>
-            <div class="movie-card"><img src="from.jpg" alt="FROM"></div>
-        </div>
-    </div>
-
-    <div class="content-section">
-        <h2 class="row-title">Horror & Thriller</h2>
-        <div class="row-content">
-            <div class="movie-card"><img src="from.jpg" alt="FROM"></div>
-            <div class="movie-card"><img src="sweet-home.jpg" alt="Sweet Home"></div>
-            <div class="movie-card"><img src="It-derry.jpg" alt="IT"></div>
-        </div>
-    </div>
-
-    <div class="series-grid" id="series">
-        <div class="series-box searchable">
-            <img src="wednesday-s123.jpg" alt="Wednesday" class="series-poster">
-            <div class="series-details">
-                <h3>Wednesday</h3>
-                <p>Mystery • Comedy • Supernatural<br>Season 2 Available</p>
-            </div>
-        <div class="series-box searchable">
-            <img src="poster.jpg" alt="Stranger Things" class="series-poster">
-            <div class="series-details">
-                <h3>Stranger Things</h3>
-                <p>Sci-Fi • Horror • Drama<br>Season 5 Coming Soon</p>
-            </div>
-        <div class="series-box searchable">
-            <img src="one-piece.jpg" alt="One Piece" class="series-poster">
-            <div class="series-details">
-                <h3>One Piece</h3>
-                <p>Adventure • Action • Fantasy<br>Live Action Series</p>
-            </div>
-        <div class="series-box searchable">
-            <img src="from.jpg" alt="FROM" class="series-poster">
-            <div class="series-details">
-                <h3>FROM</h3>
-                <p>Mystery • Horror • Sci-Fi<br>MGM+ Original Series</p>
-            </div>
-        <div class="series-box searchable">
-            <img src="my-demon.jpg" alt="My Demon" class="series-poster">
-            <div class="series-details">
-                <h3>My Demon</h3>
-                <p>Romance • Fantasy • Comedy<br>Complete Series</p>
-            </div>
-        <div class="series-box searchable">
-            <img src="sweet-home.jpg" alt="Sweet Home" class="series-poster">
-            <div class="series-details">
-                <h3>Sweet Home</h3>
-                <p>Horror • Thriller • Action<br>Season 3 Available</p>
-            </div>
+            <div class="episodes-list" id="episodesList"></div>
         </div>
     </div>
 
@@ -257,7 +143,19 @@
     <script>
         const API_KEY = 'YOUR_TMDB_API_KEY';
         const TV_ID = 119051;
-        const YT_SHORT_ID = 'xrb0uSvYRPs';
+        let currentSeason = 1;
+
+        // Episode එක ගානේ YouTube Links - මේක Edit කරපන්
+        const myYouTubeLinks = {
+          1: {
+            1: 'xrb0uSvYRPs', 2: 'xrb0uSvYRPs', 3: 'xrb0uSvYRPs', 4: 'xrb0uSvYRPs',
+            5: 'xrb0uSvYRPs', 6: 'xrb0uSvYRPs', 7: 'xrb0uSvYRPs', 8: 'xrb0uSvYRPs'
+          },
+          2: {
+            1: 'xrb0uSvYRPs', 2: 'xrb0uSvYRPs', 3: 'xrb0uSvYRPs', 4: 'xrb0uSvYRPs',
+            5: 'xrb0uSvYRPs', 6: 'xrb0uSvYRPs', 7: 'xrb0uSvYRPs', 8: 'xrb0uSvYRPs'
+          }
+        };
 
         const mySubtitles = {
           1: {
@@ -303,27 +201,41 @@
             }
         }
 
-        // Build Netflix Style Episode Playlist
-        function buildEpisodePlaylist(seasonNum) {
-            const playlist = document.getElementById('episodePlaylist');
-            let html = '';
-            for(let i = 1; i <= 8; i++) {
-                const subPath = mySubtitles[seasonNum][i];
-                html += `
-                    <div class="episode-item">
-                        <h4>Episode ${i}</h4>
-                        <div class="episode-btns">
-                            <a href="https://www.youtube.com/watch?v=${YT_SHORT_ID}" target="_blank" class="ep-btn yt">
-                                ▶ Watch YT
+        // Netflix Style Episode List Build කරනවා
+        async function loadSeason(seasonNum) {
+            currentSeason = seasonNum;
+            document.getElementById('seasonSelect').value = seasonNum;
+
+            const res = await fetch(`https://api.themoviedb.org/3/tv/${TV_ID}/season/${seasonNum}?api_key=${API_KEY}`);
+            const season = await res.json();
+
+            const list = document.getElementById('episodesList');
+            list.innerHTML = '';
+
+            season.episodes.forEach(ep => {
+                const subPath = mySubtitles[seasonNum]?.[ep.episode_number];
+                const ytId = myYouTubeLinks[seasonNum][ep.episode_number];
+                const thumbUrl = ep.still_path? `https://image.tmdb.org/t/p/w500${ep.still_path}` : 'https://via.placeholder.com/500x281/111/fff?text=Wednesday';
+
+                list.innerHTML += `
+                    <div class="episode-row">
+                        <div class="episode-left">
+                            <div class="episode-num">${ep.episode_number}</div>
+                            <img src="${thumbUrl}" class="episode-thumb" alt="${ep.name}">
+                            <div class="episode-details">
+                                <div class="episode-title">${ep.name}</div>
+                                <div class="episode-desc">${ep.overview || 'No description available.'}</div>
+                                <div class="episode-meta">${ep.air_date} • ${Math.floor(ep.runtime)}m</div>
+                            </div>
+                        <div class="episode-actions">
+                            <a href="https://www.youtube.com/watch?v=${ytId}" target="_blank" class="ep-btn yt">
+                                ▶ Watch
                             </a>
-                            <a href="${subPath}" download class="ep-btn srt">
-                                ⬇ SRT
-                            </a>
+                            ${subPath? `<a href="${subPath}" download class="ep-btn srt">⬇ SRT</a>` : ''}
                         </div>
                     </div>
                 `;
-            }
-            playlist.innerHTML = html;
+            });
         }
 
         // Download All SRT Files
@@ -343,51 +255,7 @@
             });
         }
 
-        async function loadSeason(seasonNum) {
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
-
-            buildEpisodePlaylist(seasonNum);
-
-            const res = await fetch(`https://api.themoviedb.org/3/tv/${TV_ID}/season/${seasonNum}?api_key=${API_KEY}`);
-            const season = await res.json();
-
-            const list = document.getElementById('episodeList');
-            list.innerHTML = '';
-
-            season.episodes.forEach(ep => {
-                const subPath = mySubtitles[seasonNum]?.[ep.episode_number];
-                const thumbUrl = ep.still_path? `https://image.tmdb.org/t/p/w500${ep.still_path}` : 'https://via.placeholder.com/500x281/111/fff?text=Wednesday';
-
-                list.innerHTML += `
-                    <div class="episode-card">
-                        <img src="${thumbUrl}" class="ep-thumb" alt="${ep.name}">
-                        <div class="ep-info">
-                            <h3>S${seasonNum} E${ep.episode_number}: ${ep.name}</h3>
-                            <p>${ep.air_date} | ⭐ ${ep.vote_average.toFixed(1)}</p>
-                            ${subPath? `<a href="${subPath}" download class="download-btn">⬇️ Download SRT</a>` : ''}
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        function searchContent() {
-            var input = document.getElementById('searchInput');
-            var filter = input.value.toUpperCase();
-            var items = document.getElementsByClassName('searchable');
-            for (var i = 0; i < items.length; i++) {
-                var text = items[i].innerText || items[i].textContent;
-                if (text.toUpperCase().indexOf(filter) > -1) {
-                    items[i].style.display = "";
-                } else {
-                    items[i].style.display = "none";
-                }
-            }
-        }
-
-        buildEpisodePlaylist(1);
         loadSeason(1);
     </script>
 </body>
-        </html>
+</html>
