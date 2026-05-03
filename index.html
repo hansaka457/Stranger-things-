@@ -7,65 +7,27 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Bebas+Neue&display=swap');
 
-        /* CINEMAX OVERLAP FIX - V3 FINAL */
-       .hero-banner *::before,
-       .hero-banner *::after,
-       .hero-content::before,
-       .hero-content::after,
-       .hero-title::before,
-       .hero-title::after {
-            content: none!important;
-            display: none!important;
-            background: none!important;
-        }
+        * {margin:0; padding:0; box-sizing:border-box}
+        body,html {margin:0!important; padding:0!important; font-family:'Roboto',Arial,sans-serif; background:#141414; color:#fff; overflow-x:hidden}
+
+       .netflix-header {position:fixed; top:0; width:100%; height:70px; background:linear-gradient(180deg,rgba(0,0,0,0.8) 0%,transparent 100%); z-index:1000; display:flex; align-items:center; padding:0 4%; transition:background 0.3s}
+       .netflix-header.scrolled {background:#141414}
+       .netflix-logo {color:#E50914; font-size:32px; font-weight:900; font-family:'Bebas Neue',sans-serif; letter-spacing:2px; cursor:pointer}
 
        .hero-banner {
-            position: relative!important;
-            height: 100svh!important;
-            display: flex!important;
-            flex-direction: column!important;
-            justify-content: flex-end!important;
-            padding: 90px 4% 120px 4%!important;
+            position: relative;
+            height: 100svh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 90px 4% 120px 4%;
             width: 100%;
             overflow: hidden;
         }
 
-       .hero-content {
-            position: relative!important;
-            z-index: 99!important;
-            margin-top: 0!important;
-            margin-bottom: 0!important;
-            width: 100%!important;
-            max-width: 600px!important;
-            padding-top: 20px;
-        }
-
-       .hero-title {
-            position: relative!important;
-            z-index: 100!important;
-            margin-top: 0!important;
-        }
-
-       .netflix-header {
-            background: linear-gradient(180deg,rgba(0,0,0,0.8) 0%,transparent 100%)!important;
-            z-index: 1000!important;
-        }
-        /* END OF FIX */
-
-        * {margin:0; padding:0; box-sizing:border-box}
-        body,html {margin:0!important; padding:0!important; font-family:'Roboto',Arial,sans-serif; background:#141414; color:#fff; overflow-x:hidden}
-
-       .netflix-header {position:fixed; top:0; width:100%; height:70px; background:linear-gradient(180deg,rgba(0,0,0,0.7) 10%,transparent); z-index:1000; display:flex; align-items:center; padding:0 4%; transition:background 0.3s}
-       .netflix-header.scrolled {background:#141414}
-       .netflix-logo {color:#E50914; font-size:32px; font-weight:900; font-family:'Bebas Neue',sans-serif; letter-spacing:2px; cursor:pointer}
-
-       .hero-slide {position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; transition:opacity 1.5s ease-in-out; z-index:0}
-       .hero-slide.active {opacity:1; z-index:1}
-       .hero-video,.hero-youtube {position:absolute; top:50%; left:50%; min-width:100%; min-height:100%; width:auto; height:auto; transform:translate(-50%,-50%); object-fit:cover}
-       .hero-youtube {width:177.78vh; height:100vh; border:none; pointer-events:none}
+       .hero-video {position:absolute; top:50%; left:50%; min-width:100%; min-height:100%; width:auto; height:auto; transform:translate(-50%,-50%); object-fit:cover}
        .hero-overlay {position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(to top,#141414 5%,transparent 60%,rgba(0,0,0,0.3) 100%); z-index:1}
        .hero-content {max-width:600px; z-index:2; position:relative}
-       .hero-content::before {display:none!important}
        .hero-title {font-size:5rem; font-weight:900; margin-bottom:15px; text-shadow:2px 2px 4px rgba(0,0,0,0.8); line-height:1; font-family:'Bebas Neue',sans-serif; letter-spacing:2px}
        .hero-meta {display:flex; gap:15px; align-items:center; margin-bottom:15px; font-size:1rem; color:#ccc; font-weight:600}
        .hero-badge {background:#E50914; padding:3px 8px; border-radius:3px; font-weight:700; font-size:0.85rem}
@@ -73,35 +35,20 @@
        .hero-buttons {display:flex; gap:15px}
        .btn-play {background:#fff; color:#000; border:none; padding:10px 28px; font-size:1.1rem; border-radius:4px; cursor:pointer; font-weight:700; display:flex; align-items:center; gap:10px; transition:0.2s; text-decoration:none}
        .btn-play:hover {background:rgba(255,255,255,0.75)}
-       .btn-info {background:rgba(109,109,110,0.7); color:#fff; border:none; padding:10px 28px; font-size:1.1rem; border-radius:4px; cursor:pointer; font-weight:700; display:flex; align-items:center; gap:10px; transition:0.2s}
-       .btn-info:hover {background:rgba(109,109,110,0.5)}
        .volume-btn {position:absolute; right:4%; bottom:140px; z-index:3; width:40px; height:40px; border-radius:50%; border:2px solid #fff; background:rgba(0,0,0,0.5); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:18px; transition:0.2s}
        .volume-btn:hover {background:rgba(255,255,255,0.2)}
-
-       .hero-dots {position:absolute; bottom:30px; left:50%; transform:translateX(-50%); z-index:3; display:flex; gap:10px}
-       .hero-dot {width:12px; height:12px; border-radius:50%; background:rgba(255,255,255,0.3); cursor:pointer; transition:0.3s}
-       .hero-dot.active {background:#fff; width:30px; border-radius:6px}
 
        .search-container {padding:20px 4%; background:#141414}
        .search-box {width:100%; max-width:500px; padding:12px 20px; font-size:16px; border:1px solid #333; background:#000; color:#fff; border-radius:4px}
 
-       .content-section {padding:30px 4% 50px 4%; margin-top:-80px; position:relative; z-index:2}
-       .row-title {font-size:1.4rem; font-weight:700; margin-bottom:15px; color:#e5e5e5}
-       .row-content {display:flex; gap:8px; overflow-x:auto; overflow-y:hidden; padding:10px 0 20px 0; scroll-behavior:smooth}
-       .row-content::-webkit-scrollbar {height:8px}
-       .row-content::-webkit-scrollbar-thumb {background:#333; border-radius:4px}
-       .movie-card {min-width:220px; height:125px; border-radius:4px; overflow:hidden; cursor:pointer; transition:transform 0.3s; position:relative; background:#2f2f2f; flex-shrink:0}
-       .movie-card:hover {transform:scale(1.4); z-index:10}
-       .movie-card img {width:100%; height:100%; object-fit:cover}
-
-       .series-box-container {padding:30px 4%}
-       .series-card-box {background:#1a1a1a; border-radius:8px; overflow:hidden; margin:20px 0; border:1px solid #333; position:relative}
-       .series-card-content {display:flex; gap:20px; padding:25px; align-items:center}
-       .series-poster {width:150px; height:225px; border-radius:6px; object-fit:cover; flex-shrink:0}
-       .series-info {flex:1}
-       .series-info h3 {font-size:2rem; margin-bottom:10px; font-weight:700}
-       .series-info p {color:#ccc; font-size:0.95rem; line-height:1.5; margin-bottom:15px}
-       .series-meta {color:#999; font-size:0.85rem; margin-bottom:15px}
+       .wednesday-box-container {padding:30px 4%; margin-top:-80px; position:relative; z-index:2}
+       .wednesday-card-box {background:#1a1a1a; border-radius:8px; overflow:hidden; margin:20px 0; border:1px solid #333; position:relative}
+       .wednesday-card-content {display:flex; gap:20px; padding:25px; align-items:center}
+       .wednesday-poster {width:150px; height:225px; border-radius:6px; object-fit:cover; flex-shrink:0}
+       .wednesday-info {flex:1}
+       .wednesday-info h3 {font-size:2rem; margin-bottom:10px; font-weight:700}
+       .wednesday-info p {color:#ccc; font-size:0.95rem; line-height:1.5; margin-bottom:15px}
+       .wednesday-meta {color:#999; font-size:0.85rem; margin-bottom:15px}
        .see-subs-btn {background:#E50914; color:#fff; padding:10px 24px; border-radius:4px; text-decoration:none; font-size:1rem; font-weight:700; transition:0.2s; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px}
        .see-subs-btn:hover {background:#f40612}
 
@@ -112,8 +59,8 @@
        .series-details {padding:15px}
        .series-details h3 {font-size:1.1rem; margin-bottom:8px; color:#fff}
        .series-details p {font-size:0.85rem; color:#999; line-height:1.4; margin-bottom:10px}
-       .wa-btn {display:inline-block; background:#E50914; color:#fff; padding:8px 16px; border-radius:4px; text-decoration:none; font-size:0.9rem; font-weight:700; transition:0.2s}
-       .wa-btn:hover {background:#f40612}
+       .subs-btn {display:inline-block; background:#E50914; color:#fff; padding:8px 16px; border-radius:4px; text-decoration:none; font-size:0.9rem; font-weight:700; transition:0.2s; border:none; cursor:pointer}
+       .subs-btn:hover {background:#f40612}
 
        .subtitles-panel {position:fixed; top:0; right:-100%; width:100%; max-width:600px; height:100vh; background:#141414; z-index:2000; transition:right 0.4s ease; overflow-y:auto; box-shadow:-5px 0 20px rgba(0,0,0,0.5)}
        .subtitles-panel.active {right:0}
@@ -127,17 +74,19 @@
        .subtitles-header h2 {font-size:1.3rem}
        .close-btn {background:none; border:none; color:#fff; font-size:24px; cursor:pointer; width:40px; height:40px; display:flex; align-items:center; justify-content:center; border-radius:50%; transition:0.2s}
        .close-btn:hover {background:#333}
-       .subtitles-content {padding:20px}
+       .subtitles-content {padding:20px; position:relative; z-index:1}
 
-       .subtitles-youtube {width:100%; aspect-ratio:16/9; margin-bottom:20px; border-radius:8px; overflow:hidden; background:#000}
+       .subtitles-bg {position:absolute; top:0; left:0; width:100%; height:100%; background-image:url('wednesday-s123.jpg'); background-size:cover; background-position:center; opacity:0.1; z-index:0}
+
+       .subtitles-youtube {width:100%; aspect-ratio:16/9; margin-bottom:20px; border-radius:8px; overflow:hidden; background:#000; position:relative; z-index:1}
        .subtitles-youtube iframe {width:100%; height:100%; border:none}
 
-       .download-all-btn {background:#E50914; color:#fff; padding:12px 20px; border-radius:4px; text-decoration:none; font-size:0.95rem; font-weight:700; transition:0.2s; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; width:100%; margin-bottom:20px}
+       .download-all-btn {background:#E50914; color:#fff; padding:12px 20px; border-radius:4px; text-decoration:none; font-size:0.95rem; font-weight:700; transition:0.2s; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; width:100%; margin-bottom:20px; position:relative; z-index:1}
        .download-all-btn:hover {background:#f40612}
 
-       .episodes-list {display:flex; flex-direction:column; gap:2px}
-       .episode-row {background:#2f2f2f; padding:15px; display:flex; gap:15px; align-items:center; transition:0.2s; cursor:pointer; border-left:4px solid transparent}
-       .episode-row:hover {background:#383838; border-left-color:#E50914}
+       .episodes-list {display:flex; flex-direction:column; gap:2px; position:relative; z-index:1}
+       .episode-row {background:rgba(47,47,47,0.9); padding:15px; display:flex; gap:15px; align-items:center; transition:0.2s; cursor:pointer; border-left:4px solid transparent}
+       .episode-row:hover {background:rgba(56,56,56,0.95); border-left-color:#E50914}
        .episode-num {font-size:1.5rem; font-weight:700; color:#808080; min-width:35px; text-align:center}
        .episode-details {flex:1}
        .episode-title {font-size:0.95rem; font-weight:700; margin-bottom:4px; color:#fff}
@@ -150,24 +99,15 @@
         @media (max-width:768px) {
            .netflix-header {padding:0 20px}
            .netflix-logo {font-size:24px}
-           .hero-banner {
-                height: 100svh!important;
-                padding: 90px 20px 100px 20px!important;
-                justify-content: flex-end!important;
-            }
-           .hero-content {
-                margin-top: 0!important;
-                padding-top: 0;
-            }
-           .hero-title {font-size:2.5rem!important; margin-bottom:10px}
+           .hero-banner {height:100svh; padding:90px 20px 100px 20px; justify-content:flex-end}
+           .hero-title {font-size:2.5rem; margin-bottom:10px}
            .hero-meta {font-size:0.85rem; flex-wrap:wrap}
-           .hero-desc {font-size:0.85rem!important; margin-bottom:15px}
+           .hero-desc {font-size:0.85rem; margin-bottom:15px}
            .hero-buttons {flex-direction:column; width:100%}
-           .btn-play,.btn-info {width:100%; justify-content:center; padding:12px 20px}
+           .btn-play {width:100%; justify-content:center; padding:12px 20px}
            .volume-btn {bottom:120px; right:20px}
-           .hero-youtube {width:100%; height:177.78vw}
-           .series-card-content {flex-direction:column; text-align:center}
-           .series-poster {width:120px; height:180px}
+           .wednesday-card-content {flex-direction:column; text-align:center}
+           .wednesday-poster {width:120px; height:180px}
            .subtitles-panel {max-width:100%}
            .subtitles-banner {height:150px}
            .episode-row {flex-direction:column; align-items:flex-start}
@@ -183,129 +123,40 @@
     </header>
 
     <div class="hero-banner">
-        <div class="hero-slide active" data-index="0">
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="wednesday-edit.mp4" type="video/mp4">
-            </video>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1 class="hero-title">WEDNESDAY</h1>
-                <div class="hero-meta">
-                    <span class="hero-badge">NEW</span>
-                    <span>2022</span>
-                    <span>2 Seasons</span>
-                    <span>TV-14</span>
-                </div>
-                <p class="hero-desc">Smart, sarcastic and a little dead inside, Wednesday Addams investigates a murder spree while making new friends and foes at Nevermore Academy.</p>
-                <div class="hero-buttons">
-                    <button class="btn-play" onclick="openSubtitles('wednesday')">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        Play
-                    </button>
-                    <button class="btn-info">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                        More Info
-                    </button>
-                </div>
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="wednesday-edit.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">WEDNESDAY</h1>
+            <div class="hero-meta">
+                <span class="hero-badge">NEW</span>
+                <span>2022</span>
+                <span>2 Seasons</span>
+                <span>TV-14</span>
+            </div>
+            <p class="hero-desc">Smart, sarcastic and a little dead inside, Wednesday Addams investigates a murder spree while making new friends and foes at Nevermore Academy.</p>
+            <div class="hero-buttons">
+                <button class="btn-play" onclick="openSubtitles('wednesday')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    Play
+                </button>
             </div>
         </div>
-
-        <div class="hero-slide" data-index="1">
-            <iframe class="hero-youtube" src="https://www.youtube.com/embed/fcoZidKzoBU?autoplay=1&mute=1&loop=1&playlist=fcoZidKzoBU&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&start=0&end=19" allow="autoplay; encrypted-media"></iframe>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1 class="hero-title">ONE PIECE</h1>
-                <div class="hero-meta">
-                    <span class="hero-badge">POPULAR</span>
-                    <span>2023</span>
-                    <span>1 Season</span>
-                    <span>TV-14</span>
-                </div>
-                <p class="hero-desc">With his straw hat and ragtag crew, young pirate Monkey D. Luffy goes on an epic voyage for treasure in this live-action adaptation.</p>
-                <div class="hero-buttons">
-                    <button class="btn-play" onclick="openSubtitles('onepiece')">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        Play
-                    </button>
-                    <button class="btn-info">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                        More Info
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="hero-slide" data-index="2">
-            <iframe class="hero-youtube" src="https://www.youtube.com/embed/kUA7bOotN8E?autoplay=1&mute=1&loop=1&playlist=kUA7bOotN8E&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1" allow="autoplay; encrypted-media"></iframe>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1 class="hero-title">SWEET HOME</h1>
-                <div class="hero-meta">
-                    <span class="hero-badge">TRENDING</span>
-                    <span>2020</span>
-                    <span>3 Seasons</span>
-                    <span>TV-MA</span>
-                </div>
-                <p class="hero-desc">As humans turn into savage monsters, one troubled teen and his neighbors fight to survive and to hold on to their humanity.</p>
-                <div class="hero-buttons">
-                    <button class="btn-play" onclick="openSubtitles('sweethome')">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        Play
-                    </button>
-                    <button class="btn-info">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                        More Info
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="hero-slide" data-index="3">
-            <iframe class="hero-youtube" src="https://www.youtube.com/embed/dhb6UkSulqI?autoplay=1&mute=1&loop=1&playlist=dhb6UkSulqI&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&start=0&end=20" allow="autoplay; encrypted-media"></iframe>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1 class="hero-title">FROM</h1>
-                <div class="hero-meta">
-                    <span class="hero-badge">HORROR</span>
-                    <span>2022</span>
-                    <span>3 Seasons</span>
-                    <span>TV-MA</span>
-                </div>
-                <p class="hero-desc">Unravel the mystery of a nightmarish town that traps all those who enter. As the unwilling residents fight to keep a sense of normalcy, they must also survive the threats of the surrounding forest.</p>
-                <div class="hero-buttons">
-                    <button class="btn-play" onclick="openSubtitles('from')">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        Play
-                    </button>
-                    <button class="btn-info">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                        More Info
-                    </button>
-                </div>
-            </div>
-        </div>
-
         <button class="volume-btn" id="volumeBtn" onclick="toggleMute()">🔇</button>
-
-        <div class="hero-dots">
-            <div class="hero-dot active" onclick="goToSlide(0)"></div>
-            <div class="hero-dot" onclick="goToSlide(1)"></div>
-            <div class="hero-dot" onclick="goToSlide(2)"></div>
-            <div class="hero-dot" onclick="goToSlide(3)"></div>
-        </div>
     </div>
 
     <div class="search-container">
-        <input type="text" class="search-box" id="searchInput" placeholder="Search titles..." onkeyup="searchContent()">
+        <input type="text" class="search-box" id="searchInput" placeholder="Search series..." onkeyup="searchContent()">
     </div>
 
-    <div class="series-box-container">
-        <div class="series-card-box">
-            <div class="series-card-content">
-                <img src="wednesday-s123.jpg" alt="Wednesday" class="series-poster">
-                <div class="series-info">
+    <div class="wednesday-box-container">
+        <div class="wednesday-card-box">
+            <div class="wednesday-card-content">
+                <img src="wednesday-s123.jpg" alt="Wednesday" class="wednesday-poster">
+                <div class="wednesday-info">
                     <h3>WEDNESDAY</h3>
-                    <div class="series-meta">2022 • Mystery • Comedy • Supernatural • 2 Seasons</div>
+                    <div class="wednesday-meta">2022 • Mystery • Comedy • Supernatural • 2 Seasons</div>
                     <p>A sleuthing, supernaturally infused mystery charting Wednesday Addams' years as a student at Nevermore Academy. She attempts to master her emerging psychic ability, thwart a monstrous killing spree and solve the supernatural mystery that embroiled her parents 25 years ago.</p>
                     <p style="color:#E50914;font-weight:600;margin-bottom:15px">Starring: Jenna Ortega, Gwendoline Christie, Riki Lindhome</p>
                     <button class="see-subs-btn" onclick="openSubtitles('wednesday')">📝 See Subtitles</button>
@@ -314,79 +165,60 @@
         </div>
     </div>
 
-    <div class="content-section">
-        <h2 class="row-title">Trending Now</h2>
-        <div class="row-content">
-            <div class="movie-card"><img src="poster.jpg" alt="Stranger Things"></div>
-            <div class="movie-card"><img src="wednesday-s123.jpg" alt="Wednesday"></div>
-            <div class="movie-card"><img src="one-piece.jpg" alt="One Piece"></div>
-            <div class="movie-card"><img src="my-demon.jpg" alt="My Demon"></div>
-            <div class="movie-card"><img src="sweet-home.jpg" alt="Sweet Home"></div>
-            <div class="movie-card"><img src="from.jpg" alt="FROM"></div>
-        </div>
-    </div>
-
-    <div class="content-section">
-        <h2 class="row-title">Horror & Thriller</h2>
-        <div class="row-content">
-            <div class="movie-card"><img src="from.jpg" alt="FROM"></div>
-            <div class="movie-card"><img src="sweet-home.jpg" alt="Sweet Home"></div>
-            <div class="movie-card"><img src="It-derry.jpg" alt="IT"></div>
-        </div>
-    </div>
-
-    <div class="series-grid" id="series">
-        <div class="series-box searchable">
+    <div class="series-grid" id="seriesGrid">
+        <div class="series-box searchable" data-name="wednesday">
             <img src="wednesday-s123.jpg" alt="Wednesday" class="series-poster-small">
             <div class="series-details">
                 <h3>Wednesday</h3>
                 <p>Mystery • Comedy • Supernatural<br>Season 2 Available</p>
-                <a href="https://wa.me/94775062608?text=.cinesubz%20WEDNESDAY" target="_blank" class="wa-btn">Get on WhatsApp</a>
+                <button class="subs-btn" onclick="openSubtitles('wednesday')">Get Subtitles</button>
             </div>
         </div>
-        <div class="series-box searchable">
-            <img src="poster.jpg" alt="Stranger Things" class="series-poster-small">
+        <div class="series-box searchable" data-name="stranger things">
+            <img src="https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg" alt="Stranger Things" class="series-poster-small">
             <div class="series-details">
                 <h3>Stranger Things</h3>
                 <p>Sci-Fi • Horror • Drama<br>Season 5 Coming Soon</p>
-                <a href="https://wa.me/94775062608?text=.cinesubz%20StrangerThings" target="_blank" class="wa-btn">Get on WhatsApp</a>
+                <button class="subs-btn" onclick="openSubtitles('strangerthings')">Get Subtitles</button>
             </div>
-        <div class="series-box searchable">
-            <img src="one-piece.jpg" alt="One Piece" class="series-poster-small">
+        <div class="series-box searchable" data-name="one piece">
+            <img src="https://image.tmdb.org/t/p/w500/cMD9Ygz11zjJzAovURpO75Qg7rT.jpg" alt="One Piece" class="series-poster-small">
             <div class="series-details">
                 <h3>One Piece</h3>
                 <p>Adventure • Action • Fantasy<br>Live Action Series</p>
-                <a href="https://wa.me/94775062608?text=.cinesubz%20one%20piece" target="_blank" class="wa-btn">Get on WhatsApp</a>
+                <button class="subs-btn" onclick="openSubtitles('onepiece')">Get Subtitles</button>
             </div>
         </div>
-        <div class="series-box searchable">
-            <img src="from.jpg" alt="FROM" class="series-poster-small">
+        <div class="series-box searchable" data-name="from">
+            <img src="https://image.tmdb.org/t/p/w500/6U9IoVqXh4WGHe3V5RmE3nJQh6F.jpg" alt="FROM" class="series-poster-small">
             <div class="series-details">
                 <h3>FROM</h3>
                 <p>Mystery • Horror • Sci-Fi<br>MGM+ Original Series</p>
-                <a href="https://wa.me/94775062608?text=.cinesubz%20from" target="_blank" class="wa-btn">Get on WhatsApp</a>
+                <button class="subs-btn" onclick="openSubtitles('from')">Get Subtitles</button>
             </div>
         </div>
-        <div class="series-box searchable">
-            <img src="my-demon.jpg" alt="My Demon" class="series-poster-small">
-            <div class="series-details">
-                <h3>My Demon</h3>
-                <p>Romance • Fantasy • Comedy<br>Complete Series</p>
-                <a href="https://wa.me/94775062608?text=.cinesubz%20my%20demon" target="_blank" class="wa-btn">Get on WhatsApp</a>
-            </div>
-        <div class="series-box searchable">
-            <img src="sweet-home.jpg" alt="Sweet Home" class="series-poster-small">
+        <div class="series-box searchable" data-name="sweet home">
+            <img src="https://image.tmdb.org/t/p/w500/5rJ0VPZC3ozKEs1RJ0GMoDq5q1Q.jpg" alt="Sweet Home" class="series-poster-small">
             <div class="series-details">
                 <h3>Sweet Home</h3>
                 <p>Horror • Thriller • Action<br>Season 3 Available</p>
-                <a href="https://wa.me/94775062608?text=.cinesubz%20sweet%20home" target="_blank" class="wa-btn">Get on WhatsApp</a>
+                <button class="subs-btn" onclick="openSubtitles('sweethome')">Get Subtitles</button>
+            </div>
+        </div>
+        <div class="series-box searchable" data-name="my demon">
+            <img src="https://image.tmdb.org/t/p/w500/8pb1cfGZXo7X6NuMrfv6DJnxpRy.jpg" alt="My Demon" class="series-poster-small">
+            <div class="series-details">
+                <h3>My Demon</h3>
+                <p>Romance • Fantasy • Comedy<br>Complete Series</p>
+                <button class="subs-btn" onclick="openSubtitles('mydemon')">Get Subtitles</button>
             </div>
         </div>
     </div>
 
     <div class="subtitles-panel" id="subtitlesPanel">
+        <div class="subtitles-bg" id="subtitlesBg"></div>
         <div class="subtitles-banner">
-            <img src="wednesday-banner.jpg" alt="Wednesday Banner" class="subtitles-banner-img" onerror="this.src='wednesday-s123.jpg'">
+            <img src="wednesday-s123.jpg" alt="Banner" class="subtitles-banner-img" id="subtitlesBannerImg">
             <div class="subtitles-banner-overlay"></div>
             <div class="subtitles-banner-title" id="subtitlesBannerTitle">WEDNESDAY</div>
         </div>
@@ -413,17 +245,14 @@
     </div>
 
     <script>
-        const API_KEY = 'YOUR_TMDB_API_KEY';
-        const TV_ID = 119051;
-        let currentSlide = 0;
-        let slideInterval;
         let currentSeries = 'wednesday';
 
         const seriesData = {
             wednesday: {
                 title: 'Wednesday',
-                banner: 'wednesday-banner.jpg',
-                youtubeShort: 'xrb0uSvYRPs',
+                banner: 'wednesday-s123.jpg',
+                youtubeShort: 'lO9vxgaIw3A',
+                bgImage: 'wednesday-s123.jpg',
                 subtitles: {
                     1: 'data/wednesday_1-1_sinhala.srt',
                     2: 'data/wednesday_1-2_sinhala.srt',
@@ -445,24 +274,43 @@
                     {num: 8, name: "A Murder of Woes", date: "Nov 23, 2022", runtime: "50m"}
                 ]
             },
+            strangerthings: {
+                title: 'Stranger Things',
+                banner: 'https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg',
+                youtubeShort: 'b9EkMc79ZSU',
+                bgImage: 'https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg',
+                subtitles: {},
+                episodes: []
+            },
             onepiece: {
                 title: 'One Piece',
-                banner: 'one-piece.jpg',
+                banner: 'https://image.tmdb.org/t/p/w500/cMD9Ygz11zjJzAovURpO75Qg7rT.jpg',
                 youtubeShort: 'fcoZidKzoBU',
+                bgImage: 'https://image.tmdb.org/t/p/w500/cMD9Ygz11zjJzAovURpO75Qg7rT.jpg',
                 subtitles: {},
                 episodes: []
             },
             sweethome: {
                 title: 'Sweet Home',
-                banner: 'sweet-home.jpg',
+                banner: 'https://image.tmdb.org/t/p/w500/5rJ0VPZC3ozKEs1RJ0GMoDq5q1Q.jpg',
                 youtubeShort: 'kUA7bOotN8E',
+                bgImage: 'https://image.tmdb.org/t/p/w500/5rJ0VPZC3ozKEs1RJ0GMoDq5q1Q.jpg',
                 subtitles: {},
                 episodes: []
             },
             from: {
                 title: 'FROM',
-                banner: 'from.jpg',
+                banner: 'https://image.tmdb.org/t/p/w500/6U9IoVqXh4WGHe3V5RmE3nJQh6F.jpg',
                 youtubeShort: 'dhb6UkSulqI',
+                bgImage: 'https://image.tmdb.org/t/p/w500/6U9IoVqXh4WGHe3V5RmE3nJQh6F.jpg',
+                subtitles: {},
+                episodes: []
+            },
+            mydemon: {
+                title: 'My Demon',
+                banner: 'https://image.tmdb.org/t/p/w500/8pb1cfGZXo7X6NuMrfv6DJnxpRy.jpg',
+                youtubeShort: 'KbGN-PxXq9M',
+                bgImage: 'https://image.tmdb.org/t/p/w500/8pb1cfGZXo7X6NuMrfv6DJnxpRy.jpg',
                 subtitles: {},
                 episodes: []
             }
@@ -478,7 +326,7 @@
         });
 
         function toggleMute() {
-            const video = document.querySelector('.hero-slide.active video');
+            const video = document.querySelector('.hero-video');
             const btn = document.getElementById('volumeBtn');
             if (video) {
                 if (video.muted) {
@@ -491,34 +339,6 @@
             }
         }
 
-        function startSlider() {
-            slideInterval = setInterval(() => {
-                nextSlide();
-            }, 8000);
-        }
-
-        function nextSlide() {
-            const slides = document.querySelectorAll('.hero-slide');
-            const dots = document.querySelectorAll('.hero-dot');
-            slides[currentSlide].classList.remove('active');
-            dots[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
-
-        function goToSlide(index) {
-            clearInterval(slideInterval);
-            const slides = document.querySelectorAll('.hero-slide');
-            const dots = document.querySelectorAll('.hero-dot');
-            slides[currentSlide].classList.remove('active');
-            dots[currentSlide].classList.remove('active');
-            currentSlide = index;
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-            startSlider();
-        }
-
         function openSubtitles(seriesName) {
             currentSeries = seriesName;
             const panel = document.getElementById('subtitlesPanel');
@@ -528,15 +348,15 @@
 
             document.getElementById('subtitlesTitle').textContent = data.title + ' - Subtitles';
             document.getElementById('subtitlesBannerTitle').textContent = data.title.toUpperCase();
-            document.querySelector('.subtitles-banner-img').src = data.banner;
-            document.getElementById('subtitlesYoutube
-                        document.getElementById('subtitlesYoutube').src = `https://www.youtube.com/embed/${data.youtubeShort}?autoplay=1&mute=1&loop=1&playlist=${data.youtubeShort}&controls=1`;
+            document.getElementById('subtitlesBannerImg').src = data.banner;
+            document.getElementById('subtitlesBg').style.backgroundImage = `url('${data.bgImage}')`;
+            document.getElementById('subtitlesYoutube').src = `https://www.youtube.com/embed/${data.youtubeShort}?autoplay=1&mute=1&loop=1&playlist=${data.youtubeShort}&controls=1`;
 
             const episodesList = document.getElementById('subtitlesEpisodesList');
             episodesList.innerHTML = '';
 
             if (data.episodes.length === 0) {
-                episodesList.innerHTML = '<p style="text-align:center; color:#999; padding:20px;">Subtitles coming soon...</p>';
+                episodesList.innerHTML = '<p style="text-align:center; color:#999; padding:20px; position:relative; z-index:1">Subtitles coming soon...</p>';
             } else {
                 data.episodes.forEach(ep => {
                     const epRow = document.createElement('div');
@@ -604,17 +424,14 @@
             const items = document.querySelectorAll('.searchable');
 
             items.forEach(item => {
-                const text = item.innerText || item.textContent;
-                if (text.toLowerCase().indexOf(filter) > -1) {
+                const name = item.getAttribute('data-name');
+                if (name && name.toLowerCase().indexOf(filter) > -1) {
                     item.style.display = '';
                 } else {
                     item.style.display = 'none';
                 }
             });
         }
-
-        // Start the slider when page loads
-        startSlider();
     </script>
 </body>
 </html>
