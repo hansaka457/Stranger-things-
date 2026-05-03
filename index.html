@@ -10,11 +10,11 @@
         * {margin:0; padding:0; box-sizing:border-box}
         body,html {margin:0!important; padding:0!important; font-family:'Roboto',Arial,sans-serif; background:#141414; color:#fff; overflow-x:hidden}
 
-       .netflix-header {position:fixed; top:0; width:100%; height:70px; background:linear-gradient(180deg,rgba(0,0,0,0.8) 0%,transparent 100%); z-index:1000; display:flex; align-items:center; padding:0 4%; transition:background 0.3s}
-       .netflix-header.scrolled {background:#141414}
-       .netflix-logo {color:#E50914; font-size:32px; font-weight:900; font-family:'Bebas Neue',sans-serif; letter-spacing:2px; cursor:pointer}
+      .netflix-header {position:fixed; top:0; width:100%; height:70px; background:linear-gradient(180deg,rgba(0,0,0,0.8) 0%,transparent 100%); z-index:1000; display:flex; align-items:center; padding:0 4%; transition:background 0.3s}
+      .netflix-header.scrolled {background:#141414}
+      .netflix-logo {color:#E50914; font-size:32px; font-weight:900; font-family:'Bebas Neue',sans-serif; letter-spacing:2px; cursor:pointer}
 
-       .hero-banner {
+      .hero-banner {
             position: relative;
             height: 100svh;
             display: flex;
@@ -25,95 +25,95 @@
             overflow: hidden;
         }
 
-       .hero-video {position:absolute; top:50%; left:50%; min-width:100%; min-height:100%; width:auto; height:auto; transform:translate(-50%,-50%); object-fit:cover}
-       .hero-overlay {position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(to top,#141414 5%,transparent 60%,rgba(0,0,0,0.3) 100%); z-index:1}
-       .hero-content {max-width:600px; z-index:2; position:relative}
-       .hero-title {font-size:5rem; font-weight:900; margin-bottom:15px; text-shadow:2px 2px 4px rgba(0,0,0,0.8); line-height:1; font-family:'Bebas Neue',sans-serif; letter-spacing:2px}
-       .hero-meta {display:flex; gap:15px; align-items:center; margin-bottom:15px; font-size:1rem; color:#ccc; font-weight:600}
-       .hero-badge {background:#E50914; padding:3px 8px; border-radius:3px; font-weight:700; font-size:0.85rem}
-       .hero-desc {font-size:1.1rem; margin-bottom:25px; text-shadow:2px 2px 4px rgba(0,0,0,0.8); font-weight:400; line-height:1.5; max-width:500px}
-       .hero-buttons {display:flex; gap:15px}
-       .btn-play {background:#fff; color:#000; border:none; padding:10px 28px; font-size:1.1rem; border-radius:4px; cursor:pointer; font-weight:700; display:flex; align-items:center; gap:10px; transition:0.2s; text-decoration:none}
-       .btn-play:hover {background:rgba(255,255,255,0.75)}
-       .volume-btn {position:absolute; right:4%; bottom:140px; z-index:3; width:40px; height:40px; border-radius:50%; border:2px solid #fff; background:rgba(0,0,0,0.5); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:18px; transition:0.2s}
-       .volume-btn:hover {background:rgba(255,255,255,0.2)}
+      .hero-video {position:absolute; top:50%; left:50%; min-width:100%; min-height:100%; width:auto; height:auto; transform:translate(-50%,-50%); object-fit:cover}
+      .hero-overlay {position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(to top,#141414 5%,transparent 60%,rgba(0,0,0,0.3) 100%); z-index:1}
+      .hero-content {max-width:600px; z-index:2; position:relative}
+      .hero-title {font-size:5rem; font-weight:900; margin-bottom:15px; text-shadow:2px 2px 4px rgba(0,0,0,0.8); line-height:1; font-family:'Bebas Neue',sans-serif; letter-spacing:2px}
+      .hero-meta {display:flex; gap:15px; align-items:center; margin-bottom:15px; font-size:1rem; color:#ccc; font-weight:600}
+      .hero-badge {background:#E50914; padding:3px 8px; border-radius:3px; font-weight:700; font-size:0.85rem}
+      .hero-desc {font-size:1.1rem; margin-bottom:25px; text-shadow:2px 2px 4px rgba(0,0,0,0.8); font-weight:400; line-height:1.5; max-width:500px}
+      .hero-buttons {display:flex; gap:15px}
+      .btn-play {background:#fff; color:#000; border:none; padding:10px 28px; font-size:1.1rem; border-radius:4px; cursor:pointer; font-weight:700; display:flex; align-items:center; gap:10px; transition:0.2s; text-decoration:none}
+      .btn-play:hover {background:rgba(255,255,255,0.75)}
+      .volume-btn {position:absolute; right:4%; bottom:140px; z-index:3; width:40px; height:40px; border-radius:50%; border:2px solid #fff; background:rgba(0,0,0,0.5); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:18px; transition:0.2s}
+      .volume-btn:hover {background:rgba(255,255,255,0.2)}
 
-       .search-container {padding:20px 4%; background:#141414}
-       .search-box {width:100%; max-width:500px; padding:12px 20px; font-size:16px; border:1px solid #333; background:#000; color:#fff; border-radius:4px}
+      .search-container {padding:20px 4%; background:#141414; position:relative; z-index:5}
+      .search-box {width:100%; max-width:500px; padding:12px 20px; font-size:16px; border:1px solid #333; background:#000; color:#fff; border-radius:4px}
 
-       .wednesday-box-container {padding:30px 4%; margin-top:-80px; position:relative; z-index:2}
-       .wednesday-card-box {background:#1a1a1a; border-radius:8px; overflow:hidden; margin:20px 0; border:1px solid #333; position:relative}
-       .wednesday-card-content {display:flex; gap:20px; padding:25px; align-items:center}
-       .wednesday-poster {width:150px; height:225px; border-radius:6px; object-fit:cover; flex-shrink:0}
-       .wednesday-info {flex:1}
-       .wednesday-info h3 {font-size:2rem; margin-bottom:10px; font-weight:700}
-       .wednesday-info p {color:#ccc; font-size:0.95rem; line-height:1.5; margin-bottom:15px}
-       .wednesday-meta {color:#999; font-size:0.85rem; margin-bottom:15px}
-       .see-subs-btn {background:#E50914; color:#fff; padding:10px 24px; border-radius:4px; text-decoration:none; font-size:1rem; font-weight:700; transition:0.2s; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px}
-       .see-subs-btn:hover {background:#f40612}
+      .wednesday-box-container {padding:30px 4%; margin-top:-80px; position:relative; z-index:2}
+      .wednesday-card-box {background:#1a1a1a; border-radius:8px; overflow:hidden; margin:20px 0; border:1px solid #333; position:relative}
+      .wednesday-card-content {display:flex; gap:20px; padding:25px; align-items:center}
+      .wednesday-poster {width:150px; height:225px; border-radius:6px; object-fit:cover; flex-shrink:0}
+      .wednesday-info {flex:1}
+      .wednesday-info h3 {font-size:2rem; margin-bottom:10px; font-weight:700}
+      .wednesday-info p {color:#ccc; font-size:0.95rem; line-height:1.5; margin-bottom:15px}
+      .wednesday-meta {color:#999; font-size:0.85rem; margin-bottom:15px}
+      .see-subs-btn {background:#E50914; color:#fff; padding:10px 24px; border-radius:4px; text-decoration:none; font-size:1rem; font-weight:700; transition:0.2s; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px}
+      .see-subs-btn:hover {background:#f40612}
 
-       .series-grid {display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; padding:40px 4%}
-       .series-box {background:#1a1a1a; border-radius:8px; overflow:hidden; transition:transform 0.3s; cursor:pointer}
-       .series-box:hover {transform:scale(1.05)}
-       .series-poster-small {width:100%; height:170px; object-fit:cover; background:#2f2f2f; display:block}
-       .series-details {padding:15px}
-       .series-details h3 {font-size:1.1rem; margin-bottom:8px; color:#fff}
-       .series-details p {font-size:0.85rem; color:#999; line-height:1.4; margin-bottom:10px}
-       .subs-btn {display:inline-block; background:#E50914; color:#fff; padding:8px 16px; border-radius:4px; text-decoration:none; font-size:0.9rem; font-weight:700; transition:0.2s; border:none; cursor:pointer}
-       .subs-btn:hover {background:#f40612}
+      .series-grid {display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; padding:40px 4%}
+      .series-box {background:#1a1a1a; border-radius:8px; overflow:hidden; transition:transform 0.3s; cursor:pointer}
+      .series-box:hover {transform:scale(1.05)}
+      .series-poster-small {width:100%; height:170px; object-fit:cover; background:#2f2f2f; display:block}
+      .series-details {padding:15px}
+      .series-details h3 {font-size:1.1rem; margin-bottom:8px; color:#fff}
+      .series-details p {font-size:0.85rem; color:#999; line-height:1.4; margin-bottom:10px}
+      .subs-btn {display:inline-block; background:#E50914; color:#fff; padding:8px 16px; border-radius:4px; text-decoration:none; font-size:0.9rem; font-weight:700; transition:0.2s; border:none; cursor:pointer}
+      .subs-btn:hover {background:#f40612}
 
-       .subtitles-panel {position:fixed; top:0; right:-100%; width:100%; max-width:600px; height:100vh; background:#141414; z-index:2000; transition:right 0.4s ease; overflow-y:auto; box-shadow:-5px 0 20px rgba(0,0,0,0.5)}
-       .subtitles-panel.active {right:0}
+      .subtitles-panel {position:fixed; top:0; right:-100%; width:100%; max-width:600px; height:100vh; background:#141414; z-index:2000; transition:right 0.4s ease; overflow-y:auto; box-shadow:-5px 0 20px rgba(0,0,0,0.5)}
+      .subtitles-panel.active {right:0}
 
-       .subtitles-banner {position:relative; width:100%; height:200px; overflow:hidden}
-       .subtitles-banner-img {width:100%; height:100%; object-fit:cover}
-       .subtitles-banner-overlay {position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(to top,#141414 0%,transparent 100%)}
-       .subtitles-banner-title {position:absolute; bottom:15px; left:20px; font-size:2rem; font-weight:900; font-family:'Bebas Neue',sans-serif; text-shadow:2px 2px 4px rgba(0,0,0,0.8)}
+      .subtitles-banner {position:relative; width:100%; height:200px; overflow:hidden}
+      .subtitles-banner-img {width:100%; height:100%; object-fit:cover}
+      .subtitles-banner-overlay {position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(to top,#141414 0%,transparent 100%)}
+      .subtitles-banner-title {position:absolute; bottom:15px; left:20px; font-size:2rem; font-weight:900; font-family:'Bebas Neue',sans-serif; text-shadow:2px 2px 4px rgba(0,0,0,0.8)}
 
-       .subtitles-header {position:sticky; top:0; background:#1a1a1a; padding:20px; border-bottom:1px solid #333; display:flex; justify-content:space-between; align-items:center; z-index:10}
-       .subtitles-header h2 {font-size:1.3rem}
-       .close-btn {background:none; border:none; color:#fff; font-size:24px; cursor:pointer; width:40px; height:40px; display:flex; align-items:center; justify-content:center; border-radius:50%; transition:0.2s}
-       .close-btn:hover {background:#333}
-       .subtitles-content {padding:20px; position:relative; z-index:1}
+      .subtitles-header {position:sticky; top:0; background:#1a1a1a; padding:20px; border-bottom:1px solid #333; display:flex; justify-content:space-between; align-items:center; z-index:10}
+      .subtitles-header h2 {font-size:1.3rem}
+      .close-btn {background:none; border:none; color:#fff; font-size:24px; cursor:pointer; width:40px; height:40px; display:flex; align-items:center; justify-content:center; border-radius:50%; transition:0.2s}
+      .close-btn:hover {background:#333}
+      .subtitles-content {padding:20px; position:relative; z-index:1}
 
-       .subtitles-bg {position:absolute; top:0; left:0; width:100%; height:100%; background-image:url('wednesday-s123.jpg'); background-size:cover; background-position:center; opacity:0.1; z-index:0}
+      .subtitles-bg {position:absolute; top:0; left:0; width:100%; height:100%; background-image:url('wednesday-s123.jpg'); background-size:cover; background-position:center; opacity:0.1; z-index:0}
 
-       .subtitles-youtube {width:100%; aspect-ratio:16/9; margin-bottom:20px; border-radius:8px; overflow:hidden; background:#000; position:relative; z-index:1}
-       .subtitles-youtube iframe {width:100%; height:100%; border:none}
+      .subtitles-youtube {width:100%; aspect-ratio:16/9; margin-bottom:20px; border-radius:8px; overflow:hidden; background:#000; position:relative; z-index:1}
+      .subtitles-youtube iframe {width:100%; height:100%; border:none}
 
-       .download-all-btn {background:#E50914; color:#fff; padding:12px 20px; border-radius:4px; text-decoration:none; font-size:0.95rem; font-weight:700; transition:0.2s; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; width:100%; margin-bottom:20px; position:relative; z-index:1}
-       .download-all-btn:hover {background:#f40612}
+      .download-all-btn {background:#E50914; color:#fff; padding:12px 20px; border-radius:4px; text-decoration:none; font-size:0.95rem; font-weight:700; transition:0.2s; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; width:100%; margin-bottom:20px; position:relative; z-index:1}
+      .download-all-btn:hover {background:#f40612}
 
-       .episodes-list {display:flex; flex-direction:column; gap:2px; position:relative; z-index:1}
-       .episode-row {background:rgba(47,47,47,0.9); padding:15px; display:flex; gap:15px; align-items:center; transition:0.2s; cursor:pointer; border-left:4px solid transparent}
-       .episode-row:hover {background:rgba(56,56,56,0.95); border-left-color:#E50914}
-       .episode-num {font-size:1.5rem; font-weight:700; color:#808080; min-width:35px; text-align:center}
-       .episode-details {flex:1}
-       .episode-title {font-size:0.95rem; font-weight:700; margin-bottom:4px; color:#fff}
-       .episode-meta {font-size:0.8rem; color:#808080}
-       .ep-btn {padding:8px 16px; border-radius:4px; text-decoration:none; font-size:0.85rem; font-weight:700; transition:0.2s; display:flex; align-items:center; gap:6px; border:none; cursor:pointer; background:#fff; color:#000; white-space:nowrap}
-       .ep-btn:hover {background:rgba(255,255,255,0.75)}
+      .episodes-list {display:flex; flex-direction:column; gap:2px; position:relative; z-index:1}
+      .episode-row {background:rgba(47,47,47,0.9); padding:15px; display:flex; gap:15px; align-items:center; transition:0.2s; cursor:pointer; border-left:4px solid transparent}
+      .episode-row:hover {background:rgba(56,56,56,0.95); border-left-color:#E50914}
+      .episode-num {font-size:1.5rem; font-weight:700; color:#808080; min-width:35px; text-align:center}
+      .episode-details {flex:1}
+      .episode-title {font-size:0.95rem; font-weight:700; margin-bottom:4px; color:#fff}
+      .episode-meta {font-size:0.8rem; color:#808080}
+      .ep-btn {padding:8px 16px; border-radius:4px; text-decoration:none; font-size:0.85rem; font-weight:700; transition:0.2s; display:flex; align-items:center; gap:6px; border:none; cursor:pointer; background:#fff; color:#000; white-space:nowrap}
+      .ep-btn:hover {background:rgba(255,255,255,0.75)}
 
-       .netflix-footer {padding:60px 4%; background:#141414; border-top:1px solid #333; text-align:center; color:#808080; font-size:0.85rem; margin-top:50px}
+      .netflix-footer {padding:60px 4%; background:#141414; border-top:1px solid #333; text-align:center; color:#808080; font-size:0.85rem; margin-top:50px}
 
         @media (max-width:768px) {
-           .netflix-header {padding:0 20px}
-           .netflix-logo {font-size:24px}
-           .hero-banner {height:100svh; padding:90px 20px 100px 20px; justify-content:flex-end}
-           .hero-title {font-size:2.5rem; margin-bottom:10px}
-           .hero-meta {font-size:0.85rem; flex-wrap:wrap}
-           .hero-desc {font-size:0.85rem; margin-bottom:15px}
-           .hero-buttons {flex-direction:column; width:100%}
-           .btn-play {width:100%; justify-content:center; padding:12px 20px}
-           .volume-btn {bottom:120px; right:20px}
-           .wednesday-card-content {flex-direction:column; text-align:center}
-           .wednesday-poster {width:120px; height:180px}
-           .subtitles-panel {max-width:100%}
-           .subtitles-banner {height:150px}
-           .episode-row {flex-direction:column; align-items:flex-start}
-           .episode-num {min-width:auto}
-           .ep-btn {width:100%; justify-content:center}
-           .series-grid {grid-template-columns:1fr; padding:30px 20px}
+          .netflix-header {padding:0 20px}
+          .netflix-logo {font-size:24px}
+          .hero-banner {height:100svh; padding:90px 20px 100px 20px; justify-content:flex-end}
+          .hero-title {font-size:2.5rem; margin-bottom:10px}
+          .hero-meta {font-size:0.85rem; flex-wrap:wrap}
+          .hero-desc {font-size:0.85rem; margin-bottom:15px}
+          .hero-buttons {flex-direction:column; width:100%}
+          .btn-play {width:100%; justify-content:center; padding:12px 20px}
+          .volume-btn {bottom:120px; right:20px}
+          .wednesday-card-content {flex-direction:column; text-align:center}
+          .wednesday-poster {width:120px; height:180px}
+          .subtitles-panel {max-width:100%}
+          .subtitles-banner {height:150px}
+          .episode-row {flex-direction:column; align-items:flex-start}
+          .episode-num {min-width:auto}
+          .ep-btn {width:100%; justify-content:center}
+          .series-grid {grid-template-columns:1fr; padding:30px 20px}
         }
     </style>
 </head>
@@ -142,7 +142,6 @@
                     Play
                 </button>
             </div>
-        </div>
         <button class="volume-btn" id="volumeBtn" onclick="toggleMute()">🔇</button>
     </div>
 
@@ -167,13 +166,12 @@
 
     <div class="series-grid" id="seriesGrid">
         <div class="series-box searchable" data-name="wednesday">
-            <img src="wednesday-s123.jpg" alt="Wednesday" class="series-poster-small">
+            <img src="wednesday-s123.jpg" alt="Wednesday" class="series-poster-small" onerror="this.src='https://image.tmdb.org/t/p/w500/9PFonBhy4cQy7Jz20NpMygczOkv.jpg'">
             <div class="series-details">
                 <h3>Wednesday</h3>
                 <p>Mystery • Comedy • Supernatural<br>Season 2 Available</p>
                 <button class="subs-btn" onclick="openSubtitles('wednesday')">Get Subtitles</button>
             </div>
-        </div>
         <div class="series-box searchable" data-name="stranger things">
             <img src="https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg" alt="Stranger Things" class="series-poster-small">
             <div class="series-details">
@@ -181,6 +179,7 @@
                 <p>Sci-Fi • Horror • Drama<br>Season 5 Coming Soon</p>
                 <button class="subs-btn" onclick="openSubtitles('strangerthings')">Get Subtitles</button>
             </div>
+        </div>
         <div class="series-box searchable" data-name="one piece">
             <img src="https://image.tmdb.org/t/p/w500/cMD9Ygz11zjJzAovURpO75Qg7rT.jpg" alt="One Piece" class="series-poster-small">
             <div class="series-details">
@@ -204,7 +203,6 @@
                 <p>Horror • Thriller • Action<br>Season 3 Available</p>
                 <button class="subs-btn" onclick="openSubtitles('sweethome')">Get Subtitles</button>
             </div>
-        </div>
         <div class="series-box searchable" data-name="my demon">
             <img src="https://image.tmdb.org/t/p/w500/8pb1cfGZXo7X6NuMrfv6DJnxpRy.jpg" alt="My Demon" class="series-poster-small">
             <div class="series-details">
@@ -434,4 +432,4 @@
         }
     </script>
 </body>
-</html>
+        </html>
