@@ -566,16 +566,20 @@
         }
 
         function downloadSRT(seriesName, epNum) {
-            const data = seriesData[seriesName];
-            const srtUrl = data.subtitles[epNum];
-            if (srtUrl) {
-                const link = document.createElement('a');
-                link.href = srtUrl;
-                link.download = `${seriesName}_S1E${epNum}_sinhala.srt`;
-                link.click();
-            } else {
-                alert('Subtitle not available yet!');
-            }
+    const data = seriesData[seriesName];
+    const srtUrl = data.subtitles[epNum];
+
+    if (srtUrl) {
+        const link = document.createElement('a');
+        link.href = srtUrl;
+        link.download = `${seriesName}_S1E${epNum}_sinhala.srt`;
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } else {
+        alert('Subtitle not available yet!');
+    }
         }
 
         function downloadAllSRT() {
