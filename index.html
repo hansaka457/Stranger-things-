@@ -97,23 +97,23 @@
       .netflix-footer {padding:60px 4%; background:#141414; border-top:1px solid #333; text-align:center; color:#808080; font-size:0.85rem; margin-top:50px}
 
         @media (max-width:768px) {
-          .netflix-header {padding:0 20px}
-          .netflix-logo {font-size:24px}
-          .hero-banner {height:100svh; padding:90px 20px 100px 20px; justify-content:flex-end}
-          .hero-title {font-size:2.5rem; margin-bottom:10px}
-          .hero-meta {font-size:0.85rem; flex-wrap:wrap}
-          .hero-desc {font-size:0.85rem; margin-bottom:15px}
-          .hero-buttons {flex-direction:column; width:100%}
-          .btn-play {width:100%; justify-content:center; padding:12px 20px}
-          .volume-btn {bottom:120px; right:20px}
-          .wednesday-card-content {flex-direction:column; text-align:center}
-          .wednesday-poster {width:120px; height:180px}
-          .subtitles-panel {max-width:100%}
-          .subtitles-banner {height:150px}
-          .episode-row {flex-direction:column; align-items:flex-start}
-          .episode-num {min-width:auto}
-          .ep-btn {width:100%; justify-content:center}
-          .series-grid {grid-template-columns:1fr; padding:30px 20px}
+         .netflix-header {padding:0 20px}
+         .netflix-logo {font-size:24px}
+         .hero-banner {height:100svh; padding:90px 20px 100px 20px; justify-content:flex-end}
+         .hero-title {font-size:2.5rem; margin-bottom:10px}
+         .hero-meta {font-size:0.85rem; flex-wrap:wrap}
+         .hero-desc {font-size:0.85rem; margin-bottom:15px}
+         .hero-buttons {flex-direction:column; width:100%}
+         .btn-play {width:100%; justify-content:center; padding:12px 20px}
+         .volume-btn {bottom:120px; right:20px}
+         .wednesday-card-content {flex-direction:column; text-align:center}
+         .wednesday-poster {width:120px; height:180px}
+         .subtitles-panel {max-width:100%}
+         .subtitles-banner {height:150px}
+         .episode-row {flex-direction:column; align-items:flex-start}
+         .episode-num {min-width:auto}
+         .ep-btn {width:100%; justify-content:center}
+         .series-grid {grid-template-columns:1fr; padding:30px 20px}
         }
     </style>
 </head>
@@ -142,6 +142,7 @@
                     Play
                 </button>
             </div>
+        </div>
         <button class="volume-btn" id="volumeBtn" onclick="toggleMute()">🔇</button>
     </div>
 
@@ -166,12 +167,13 @@
 
     <div class="series-grid" id="seriesGrid">
         <div class="series-box searchable" data-name="wednesday">
-            <img src="wednesday-s123.jpg" alt="Wednesday" class="series-poster-small" onerror="this.src='https://image.tmdb.org/t/p/w500/9PFonBhy4cQy7Jz20NpMygczOkv.jpg'">
+            <img src="wednesday-s123.jpg" alt="Wednesday" class="series-poster-small">
             <div class="series-details">
                 <h3>Wednesday</h3>
                 <p>Mystery • Comedy • Supernatural<br>Season 2 Available</p>
                 <button class="subs-btn" onclick="openSubtitles('wednesday')">Get Subtitles</button>
             </div>
+        </div>
         <div class="series-box searchable" data-name="stranger things">
             <img src="https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg" alt="Stranger Things" class="series-poster-small">
             <div class="series-details">
@@ -203,6 +205,7 @@
                 <p>Horror • Thriller • Action<br>Season 3 Available</p>
                 <button class="subs-btn" onclick="openSubtitles('sweethome')">Get Subtitles</button>
             </div>
+        </div>
         <div class="series-box searchable" data-name="my demon">
             <img src="https://image.tmdb.org/t/p/w500/8pb1cfGZXo7X6NuMrfv6DJnxpRy.jpg" alt="My Demon" class="series-poster-small">
             <div class="series-details">
@@ -432,4 +435,4 @@
         }
     </script>
 </body>
-        </html>
+    </html>
