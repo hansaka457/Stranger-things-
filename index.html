@@ -8,38 +8,57 @@
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Bebas+Neue&display=swap');
 
         /* CINEMAX OVERLAP FIX - FORCE OVERRIDE */
-     .hero-banner *::before,
-     .hero-banner *::after,
-     .hero-content::before,
-     .hero-content::after,
-     .hero-title::before,
-     .hero-title::after {
-            content: none!important;
-            display: none!important;
-            background: none!important;
-        }
+.hero-banner *::before,
+.hero-banner *::after,
+.hero-content::before,
+.hero-content::after,
+.hero-title::before,
+.hero-title::after {
+    content: none!important;
+    display: none!important;
+    background: none!important;
+}
 
-     .hero-banner {
-            position: relative!important;
-            height: 100svh!important;
-            display: flex!important;
-            align-items: flex-end!important;
-            padding: 0 4% 120px 4%!important;
-        }
+.hero-banner {
+    position: relative!important;
+    height: 100svh!important;
+    display: flex!important;
+    align-items: flex-end!important;
+    padding: 140px 4% 120px 4%!important;
+}
 
-     .hero-content {
-            position: relative!important;
-            z-index: 99!important;
-            margin-top: auto!important;
-            width: 100%!important;
-            max-width: 600px!important;
-        }
+.hero-content {
+    position: relative!important;
+    z-index: 99!important;
+    margin-top: 0!important;
+    margin-bottom: 40px!important;
+    width: 100%!important;
+    max-width: 600px!important;
+}
 
-     .hero-title {
-            position: relative!important;
-            z-index: 100!important;
-            margin-top: 0!important;
-        }
+.hero-title {
+    position: relative!important;
+    z-index: 100!important;
+    margin-top: 0!important;
+}
+
+.netflix-header {
+    background: linear-gradient(180deg,rgba(0,0,0,0.8) 0%,transparent 100%)!important;
+    z-index: 1000!important;
+}
+
+@media (max-width:768px) {
+    .hero-banner {
+        padding: 160px 20px 100px 20px!important;
+        height: 100svh!important;
+    }
+    .hero-content {
+        margin-bottom: 20px!important;
+        padding-bottom: 20px;
+    }
+    .hero-title {font-size:2.8rem; margin-bottom:10px}
+}
+/* END OF FIX */
 
      .netflix-header {
             background: linear-gradient(180deg,rgba(0,0,0,0.8) 0%,transparent 100%)!important;
