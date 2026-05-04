@@ -244,13 +244,13 @@
         <p style="margin-top:20px; font-size:0.75rem">© 2026 CINEMAX. All rights reserved.</p>
     </div>
 
-    <script>
+        <script>
         let currentSeries = 'wednesday';
         let currentSeason = 1;
 
         const seriesData = {
             wednesday: {
-                title: 'Wednesday sinhala subtitles',
+                title: 'Wednesday',
                 banner: 'wednesday-s123.jpg',
                 youtubeShort: 'lO9vxgaIw3A',
                 bgImage: 'wednesday-s123.jpg',
@@ -301,11 +301,11 @@
                     }
                 }
             },
-            strangerthings: {title: 'Stranger Things', banner: 'https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg', youtubeShort: 'b9EkMc79ZSU', bgImage: 'https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg', seasons: {}, episodes: []},
-            onepiece: {title: 'One Piece', banner: 'https://image.tmdb.org/t/p/w500/cMD9Ygz11zjJzAovURpO75Qg7rT.jpg', youtubeShort: 'fcoZidKzoBU', bgImage: 'https://image.tmdb.org/t/p/w500/cMD9Ygz11zjJzAovURpO75Qg7rT.jpg', seasons: {}, episodes: []},
-            sweethome: {title: 'Sweet Home', banner: 'https://image.tmdb.org/t/p/w500/5rJ0VPZC3ozKEs1RJ0GMoDq5q1Q.jpg', youtubeShort: 'kUA7bOotN8E', bgImage: 'https://image.tmdb.org/t/p/w500/5rJ0VPZC3ozKEs1RJ0GMoDq5q1Q.jpg', seasons: {}, episodes: []},
-            from: {title: 'FROM', banner: 'https://image.tmdb.org/t/p/w500/6U9IoVqXh4WGHe3V5RmE3nJQh6F.jpg', youtubeShort: 'dhb6UkSulqI', bgImage: 'https://image.tmdb.org/t/p/w500/6U9IoVqXh4WGHe3V5RmE3nJQh6F.jpg', seasons: {}, episodes: []},
-            mydemon: {title: 'My Demon', banner: 'https://image.tmdb.org/t/p/w500/8pb1cfGZXo7X6NuMrfv6DJnxpRy.jpg', youtubeShort: 'KbGN-PxXq9M', bgImage: 'https://image.tmdb.org/t/p/w500/8pb1cfGZXo7X6NuMrfv6DJnxpRy.jpg', seasons: {}, episodes: []}
+            strangerthings: {title: 'Stranger Things', banner: 'https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg', youtubeShort: 'b9EkMc79ZSU', bgImage: 'https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg', seasons: {}},
+            onepiece: {title: 'One Piece', banner: 'https://image.tmdb.org/t/p/w500/cMD9Ygz11zjJzAovURpO75Qg7rT.jpg', youtubeShort: 'fcoZidKzoBU', bgImage: 'https://image.tmdb.org/t/p/w500/cMD9Ygz11zjJzAovURpO75Qg7rT.jpg', seasons: {}},
+            sweethome: {title: 'Sweet Home', banner: 'https://image.tmdb.org/t/p/w500/5rJ0VPZC3ozKEs1RJ0GMoDq5q1Q.jpg', youtubeShort: 'kUA7bOotN8E', bgImage: 'https://image.tmdb.org/t/p/w500/5rJ0VPZC3ozKEs1RJ0GMoDq5q1Q.jpg', seasons: {}},
+            from: {title: 'FROM', banner: 'https://image.tmdb.org/t/p/w500/6U9IoVqXh4WGHe3V5RmE3nJQh6F.jpg', youtubeShort: 'dhb6UkSulqI', bgImage: 'https://image.tmdb.org/t/p/w500/6U9IoVqXh4WGHe3V5RmE3nJQh6F.jpg', seasons: {}},
+            mydemon: {title: 'My Demon', banner: 'https://image.tmdb.org/t/p/w500/8pb1cfGZXo7X6NuMrfv6DJnxpRy.jpg', youtubeShort: 'KbGN-PxXq9M', bgImage: 'https://image.tmdb.org/t/p/w500/8pb1cfGZXo7X6NuMrfv6DJnxpRy.jpg', seasons: {}}
         };
 
         window.addEventListener('scroll', function() {
@@ -318,7 +318,7 @@
         });
 
         function toggleMute() {
-            const video = document.querySelector('.hero-video');
+            const video = document.getElementById('heroVideo');
             const btn = document.getElementById('volumeBtn');
             if (video) {
                 if (video.muted) {
@@ -348,12 +348,14 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.getElementById('heroVideo');
-            video.addEventListener('loadedmetadata', function() {
-                if (video.textTracks[0]) {
-                    video.textTracks[0].mode = 'showing';
-                    document.getElementById('subtitleBtn').classList.add('active');
-                }
-            });
+            if(video){
+                video.addEventListener('loadedmetadata', function() {
+                    if (video.textTracks[0]) {
+                        video.textTracks[0].mode = 'showing';
+                        document.getElementById('subtitleBtn').classList.add('active');
+                    }
+                });
+            }
         });
 
         function openSubtitles(seriesName) {
@@ -447,12 +449,42 @@
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-            } elsesubtitles: {
-                            1: 'data/wednesday_2-1_sinhala.srt',
-                            2: 'data/wednesday_2-2_sinhala.srt',
-                            3: 'data/wednesday_2-3_sinhala.srt',
-                            4: 'data/wednesday_2-4_sinhala.srt',
-                            5: 'data/wednesday_2-5_sinhala.srt',
-                            6: 'data/wednesday_2-6_sinhala.srt',
-                            7: 'data/wednesday_2-7_sinhala.srt',
-                            8: 'data/wednesday_2-8_sinhala.srt'
+            } else {
+                alert('Subtitle not available yet!');
+            }
+        }
+
+        function downloadAllSRT() {
+            const data = seriesData[currentSeries];
+            if (!data.seasons ||!data.seasons[currentSeason]) {
+                alert('No subtitles available yet!');
+                return;
+            }
+            const subs = data.seasons[currentSeason].subtitles;
+            if (Object.keys(subs).length === 0) {
+                alert('No subtitles available yet!');
+                return;
+            }
+            Object.keys(subs).forEach((epNum, index) => {
+                setTimeout(() => {
+                    downloadSRT(currentSeries, currentSeason, epNum);
+                }, index * 500);
+            });
+        }
+
+        function searchContent() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const items = document.querySelectorAll('.searchable');
+            items.forEach(item => {
+                const name = item.getAttribute('data-name');
+                if (name && name.toLowerCase().indexOf(filter) > -1) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>       
